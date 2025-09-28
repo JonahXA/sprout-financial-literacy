@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-navy: #0a1f44;
+  --primary-light: #1a3a6a;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #0a1f44 0%, #1e40af 100%);
+}
+
+.card {
+  @apply bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+}
+
+.btn-primary {
+  @apply bg-[#0a1f44] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#1a3a6a] transition-colors;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease;
+}

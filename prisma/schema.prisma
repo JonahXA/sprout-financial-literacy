@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(cuid())
+  email         String       @unique
+  password      String
+  firstName     String
+  lastName      String
+  role          UserRole
+  schoolId      String?
+  school        School?      @relation(fields: [schoolId], references: [id])
+  enrollments   Enrollment[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model School {
+  id            String    @id @default(cuid())
+  name          String
+  domain        String?   @unique
+  primaryColor  String    @default("#0a1f44")
+  users         User[]
+  courses       Course[]
+  createdAt     DateTime  @default(now())
+}
+
+model Course {
+  id            String       @id @default(cuid())
+  title         String
+  description   String
+  category      String
+  duration      Int
+  schools       School[]
+  enrollments   Enrollment[]
+  createdAt     DateTime     @default(now())
+}
+
+model Enrollment {
+  id            String    @id @default(cuid())
+  userId        String
+  courseId      String
+  user          User      @relation(fields: [userId], references: [id])
+  course        Course    @relation(fields: [courseId], references: [id])
+  progress      Float     @default(0)
+  status        String    @default("NOT_STARTED")
+  startedAt     DateTime  @default(now())
+  completedAt   DateTime?
+  
+  @@unique([userId, courseId])
+}
+
+enum UserRole {
+  STUDENT
+  TEACHER
+  SCHOOL_ADMIN
+  SUPER_ADMIN
+}
