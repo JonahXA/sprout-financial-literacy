@@ -17,6 +17,11 @@ model User {
   schoolId      String?
   school        School?      @relation(fields: [schoolId], references: [id])
   enrollments   Enrollment[]
+  
+  totalPoints   Int          @default(0)
+  currentStreak Int          @default(0)
+  longestStreak Int          @default(0)
+  
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 }
@@ -25,7 +30,11 @@ model School {
   id            String    @id @default(cuid())
   name          String
   domain        String?   @unique
+  city          String?
+  state         String?
   primaryColor  String    @default("#0a1f44")
+  logo          String?
+  
   users         User[]
   courses       Course[]
   createdAt     DateTime  @default(now())

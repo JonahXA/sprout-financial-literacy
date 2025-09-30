@@ -6,36 +6,47 @@ const prisma = new PrismaClient()
 async function main() {
   console.log('Seeding database...')
 
-  // Create a school
-  const school = await prisma.school.create({
+  // Clear existing data
+  await prisma.enrollment.deleteMany()
+  await prisma.course.deleteMany()
+  await prisma.user.deleteMany()
+  await prisma.school.deleteMany()
+
+  // Create Michigan State University
+  const msu = await prisma.school.create({
     data: {
-      name: 'Lincoln High School',
-      domain: 'lincoln.edu',
+      name: 'Michigan State University',
+      domain: 'msu.edu',
+      primaryColor: '#18453B',
+      city: 'East Lansing',
+      state: 'MI'
     },
   })
 
-  // Create users
-  const hashedPassword = await bcrypt.hash('Student123!', 10)
+  console.log('✅ Created Michigan State University')
+
+  // Create demo users
+  const hashedPassword = await bcrypt.hash('Demo123!', 10)
   
   await prisma.user.create({
     data: {
-      email: 'student@lincoln.edu',
+      email: 'demo.student@msu.edu',
       password: hashedPassword,
-      firstName: 'Alex',
-      lastName: 'Thompson',
+      firstName: 'Demo',
+      lastName: 'Student',
       role: 'STUDENT',
-      schoolId: school.id,
+      schoolId: msu.id,
     },
   })
 
   await prisma.user.create({
     data: {
-      email: 'teacher@lincoln.edu',
+      email: 'demo.teacher@msu.edu',
       password: hashedPassword,
-      firstName: 'Sarah',
-      lastName: 'Johnson',
+      firstName: 'Demo',
+      lastName: 'Teacher',
       role: 'TEACHER',
-      schoolId: school.id,
+      schoolId: msu.id,
     },
   })
 
@@ -44,25 +55,35 @@ async function main() {
     data: [
       {
         title: 'Personal Budgeting Basics',
-        description: 'Learn the fundamentals of budgeting',
+        description: 'Learn the fundamentals of creating and maintaining a personal budget',
         category: 'BUDGETING',
         duration: 120,
       },
       {
         title: 'Introduction to Investing',
-        description: 'Start your investment journey',
+        description: 'Discover the world of investing and learn how to grow your wealth',
         category: 'INVESTING',
         duration: 180,
+      },
+      {
+        title: 'Understanding Credit Scores',
+        description: 'Master the credit system and learn how to build excellent credit',
+        category: 'CREDIT',
+        duration: 90,
       },
     ],
   })
 
-  console.log('Database seeded!')
+  console.log('✅ Created courses')
+  console.log('\n🎉 Database seeded!')
+  console.log('\nDemo Accounts:')
+  console.log('  Student: demo.student@msu.edu / Demo123!')
+  console.log('  Teacher: demo.teacher@msu.edu / Demo123!')
 }
 
 main()
   .catch((e) => {
-    console.error(e)
+    console.error('Seed failed:', e)
     process.exit(1)
   })
   .finally(async () => {
