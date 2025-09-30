@@ -3,24 +3,93 @@
 @tailwind utilities;
 
 :root {
-  --primary-navy: #0a1f44;
-  --primary-light: #1a3a6a;
+  --primary-navy: #0a1628;
+  --primary-light: #162844;
+  --primary-dark: #050d1a;
+  --accent-green: #58cc02;
+  --accent-gold: #ffc800;
+  --accent-red: #ff4b4b;
+  --accent-blue: #1cb0f6;
 }
 
 .gradient-blue {
-  background: linear-gradient(135deg, #0a1f44 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a6a 100%);
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%);
 }
 
 .card {
-  @apply bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200;
 }
 
 .btn-primary {
-  @apply bg-[#0a1f44] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#1a3a6a] transition-colors;
+  @apply bg-[#0a1628] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#162844] transform hover:scale-105 transition-all duration-200 shadow-lg;
+}
+
+.btn-success {
+  @apply bg-[#58cc02] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#4caf00] transform hover:scale-105 transition-all duration-200 shadow-lg;
 }
 
 .input-field {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#1cb0f6] transition-all duration-200;
+}
+
+/* XP Progress Bar Animation */
+@keyframes fillProgress {
+  from { width: 0%; }
+}
+
+.progress-fill {
+  animation: fillProgress 1s ease-out forwards;
+}
+
+/* Streak Fire Animation */
+@keyframes flicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.streak-flame {
+  animation: flicker 1.5s ease-in-out infinite;
+}
+
+/* Achievement Badge Pop */
+@keyframes badgePop {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.badge-pop {
+  animation: badgePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Combo Counter */
+.combo-counter {
+  @apply text-6xl font-bold bg-gradient-to-r from-[#ffc800] to-[#ff9500] bg-clip-text text-transparent;
+}
+
+/* Level Up Effect */
+@keyframes levelUp {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(88, 204, 2, 0.7); }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(88, 204, 2, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(88, 204, 2, 0); }
+}
+
+.level-up {
+  animation: levelUp 1s ease-out;
+}
+
+/* Gamification Cards */
+.game-card {
+  @apply bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 border-2 border-gray-100;
+}
+
+.xp-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-[#ffc800] to-[#ff9500] text-white;
 }
 
 @keyframes fadeIn {
