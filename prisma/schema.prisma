@@ -17,7 +17,8 @@ model User {
   schoolId      String?
   school        School?      @relation(fields: [schoolId], references: [id])
   enrollments   Enrollment[]
-  
+  teachingClasses   Class[]         @relation("TeachingClasses")
+  enrolledClasses   ClassStudent[]  @relation("StudentClasses")
   totalPoints   Int          @default(0)
   currentStreak Int          @default(0)
   longestStreak Int          @default(0)
@@ -37,6 +38,7 @@ model School {
   
   users         User[]
   courses       Course[]
+  classes       Class[]    // Add this line
   createdAt     DateTime  @default(now())
 }
 
@@ -48,6 +50,7 @@ model Course {
   duration      Int
   schools       School[]
   enrollments   Enrollment[]
+  assignments   Assignment[]
   createdAt     DateTime     @default(now())
 }
 
@@ -70,4 +73,51 @@ enum UserRole {
   TEACHER
   SCHOOL_ADMIN
   SUPER_ADMIN
+}
+model Class {
+  id            String          @id @default(cuid())
+  name          String
+  code          String          @unique @default(cuid())
+  description   String?
+  
+  teacherId     String
+  teacher       User            @relation("TeachingClasses", fields: [teacherId], references: [id])
+  schoolId      String
+  school        School          @relation(fields: [schoolId], references: [id])
+  
+  students      ClassStudent[]
+  assignments   Assignment[]
+  
+  isActive      Boolean         @default(true)
+  startDate     DateTime?
+  endDate       DateTime?
+  
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model ClassStudent {
+  id            String    @id @default(cuid())
+  classId       String
+  class         Class     @relation(fields: [classId], references: [id])
+  studentId     String
+  student       User      @relation("StudentClasses", fields: [studentId], references: [id])
+  
+  joinedAt      DateTime  @default(now())
+  
+  @@unique([classId, studentId])
+}
+
+model Assignment {
+  id            String    @id @default(cuid())
+  classId       String
+  class         Class     @relation(fields: [classId], references: [id])
+  courseId      String
+  course        Course    @relation(fields: [courseId], references: [id])
+  
+  title         String
+  dueDate       DateTime?
+  points        Int       @default(100)
+  
+  createdAt     DateTime  @default(now())
 }

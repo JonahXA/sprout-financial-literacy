@@ -213,7 +213,7 @@ export default function Dashboard() {
           </div>
 
           {/* Leaderboard Preview */}
-          <div className="game-card">
+          <div className="game-card mb-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold text-gray-900">Weekly Leaderboard</h3>
               <span className="text-sm font-semibold text-[#1cb0f6]">You're #2!</span>
@@ -242,6 +242,24 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+
+          {/* Teacher Portal Button */}
+          {user.role === 'TEACHER' && (
+            <div className="game-card bg-gradient-to-r from-purple-50 to-purple-100 border-2 border-purple-200">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Teacher Portal</h3>
+                  <p className="text-gray-600">Access your teacher dashboard to manage classes and track student progress</p>
+                </div>
+                <button 
+                  onClick={() => router.push('/teacher')}
+                  className="btn-primary bg-purple-600 hover:bg-purple-700"
+                >
+                  Go to Teacher Dashboard →
+                </button>
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>
