@@ -199,7 +199,10 @@ export default function TeacherDashboard() {
                     <span className="font-mono font-bold text-blue-600">{classItem.code.slice(-6).toUpperCase()}</span>
                   </div>
                 </div>
-                <button className="w-full btn-primary py-2 text-sm">
+                <button 
+                  onClick={() => router.push(`/teacher/class/${classItem.id}`)}
+                  className="w-full btn-primary py-2 text-sm"
+                >
                   Manage Class →
                 </button>
               </div>
