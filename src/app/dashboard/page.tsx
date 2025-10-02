@@ -126,6 +126,48 @@ export default function Dashboard() {
         </header>
         
         <main className="flex-1 overflow-auto p-6 bg-gradient-to-br from-gray-50 to-gray-100">
+	{/* Join Class Section - For Students Only */}
+          {user.role === 'STUDENT' && (
+            <div className="game-card mb-6 bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-200">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Join a Class</h3>
+              <p className="text-sm text-gray-600 mb-4">Enter the class code from your teacher to join</p>
+              <form onSubmit={async (e) => {
+                e.preventDefault()
+                const code = (e.target as any).code.value.toUpperCase()
+                try {
+                  const res = await fetch('/api/student/join-class', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code })
+                  })
+                  const data = await res.json()
+                  if (res.ok) {
+                    alert(`Successfully joined ${data.className}!`)
+                    ;(e.target as any).code.value = ''
+                  } else {
+                    alert(data.error || 'Invalid class code')
+                  }
+                } catch (error) {
+                  alert('Failed to join class')
+                }
+              }}>
+                <div className="flex gap-3">
+                  <input
+                    name="code"
+                    type="text"
+                    placeholder="Enter 6-digit code"
+                    className="input-field flex-1"
+                    maxLength={6}
+                    required
+                    style={{textTransform: 'uppercase'}}
+                  />
+                  <button type="submit" className="btn-primary">
+                    Join Class →
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
           {/* Daily Goals */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <StreakCounter streak={5} />
