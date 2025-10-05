@@ -15,7 +15,26 @@ export async function GET() {
 
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
-      include: { school: true }
+      include: {
+        school: true,
+        enrolledClasses: {
+          include: {
+            class: {
+              include: {
+                teacher: true
+              }
+            }
+          }
+        },
+        enrollments: {
+          include: {
+            course: true
+          },
+          orderBy: {
+            startedAt: 'desc'
+          }
+        }
+      }
     })
 
     if (!user) {
@@ -28,7 +47,11 @@ export async function GET() {
       firstName: user.firstName,
       lastName: user.lastName,
       role: user.role,
-      school: user.school
+      school: user.school,
+      enrolledClasses: user.enrolledClasses,
+      enrollments: user.enrollments,
+      totalPoints: user.totalPoints,
+      currentStreak: user.currentStreak
     })
   } catch (error) {
     return NextResponse.json({ error: 'Invalid token' }, { status: 401 })

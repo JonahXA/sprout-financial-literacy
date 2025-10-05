@@ -33,7 +33,34 @@ export async function GET(
       include: {
         students: {
           include: {
-            student: true
+            student: {
+              select: {
+                id: true,
+                email: true,
+                firstName: true,
+                lastName: true,
+                totalPoints: true,
+                currentStreak: true,
+                enrollments: {
+                  where: {
+                    courseId: {
+                      in: await prisma.assignment.findMany({
+                        where: { classId: params.id },
+                        select: { courseId: true }
+                      }).then(a => a.map(x => x.courseId))
+                    }
+                  },
+                  include: {
+                    course: {
+                      select: {
+                        id: true,
+                        title: true
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         assignments: {

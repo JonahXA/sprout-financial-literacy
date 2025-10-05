@@ -137,24 +137,69 @@ export default function ClassDetail() {
               ) : (
                 <div className="space-y-2">
                   {students.map((enrollment: any) => (
-                    <div key={enrollment.student.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold">
-                          {enrollment.student.firstName[0]}{enrollment.student.lastName[0]}
+                    <div key={enrollment.student.id} className="p-4 bg-gray-50 rounded-lg mb-3">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold">
+                            {enrollment.student.firstName[0]}{enrollment.student.lastName[0]}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900">
+                              {enrollment.student.firstName} {enrollment.student.lastName}
+                            </p>
+                            <p className="text-xs text-gray-500">{enrollment.student.email}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="font-semibold text-gray-900">
-                            {enrollment.student.firstName} {enrollment.student.lastName}
+                        <button 
+                          onClick={() => removeStudent(enrollment.student.id)}
+                          className="text-red-500 hover:text-red-700 text-sm"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                      
+                      {/* Progress indicators */}
+                      <div className="grid grid-cols-3 gap-2 text-xs">
+                        <div className="bg-white rounded p-2">
+                          <p className="text-gray-500">XP Earned</p>
+                          <p className="font-bold text-lg text-[#ffc800]">{enrollment.student.totalPoints || 0}</p>
+                        </div>
+                        <div className="bg-white rounded p-2">
+                          <p className="text-gray-500">Streak</p>
+                          <p className="font-bold text-lg text-[#ff4b4b]">{enrollment.student.currentStreak || 0} 🔥</p>
+                        </div>
+                        <div className="bg-white rounded p-2">
+                          <p className="text-gray-500">Avg Progress</p>
+                          <p className="font-bold text-lg text-[#58cc02]">
+                            {enrollment.student.enrollments && enrollment.student.enrollments.length > 0
+                              ? Math.round(
+                                  enrollment.student.enrollments.reduce((sum: number, e: any) => sum + e.progress, 0) /
+                                  enrollment.student.enrollments.length
+                                )
+                              : 0}%
                           </p>
-                          <p className="text-xs text-gray-500">{enrollment.student.email}</p>
                         </div>
                       </div>
-                      <button 
-                        onClick={() => removeStudent(enrollment.student.id)}
-                        className="text-red-500 hover:text-red-700 text-sm"
-                      >
-                        Remove
-                      </button>
+
+                      {/* Course Progress Details */}
+                      {enrollment.student.enrollments && enrollment.student.enrollments.length > 0 && (
+                        <div className="mt-3 space-y-2">
+                          {enrollment.student.enrollments.map((courseEnrollment: any) => (
+                            <div key={courseEnrollment.id} className="bg-white rounded p-2">
+                              <div className="flex justify-between items-center mb-1">
+                                <p className="text-xs font-medium text-gray-700">{courseEnrollment.course?.title || 'Course'}</p>
+                                <span className="text-xs font-bold text-gray-600">{Math.round(courseEnrollment.progress)}%</span>
+                              </div>
+                              <div className="w-full bg-gray-200 rounded-full h-1.5">
+                                <div
+                                  className="bg-[#58cc02] h-1.5 rounded-full"
+                                  style={{width: `${courseEnrollment.progress}%`}}
+                                ></div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

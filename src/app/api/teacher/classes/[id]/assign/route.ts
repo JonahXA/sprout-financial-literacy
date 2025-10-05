@@ -51,7 +51,13 @@ export async function POST(
       return NextResponse.json({ error: 'Course already assigned' }, { status: 400 })
     }
 
-    // Create assignment
+    // Get all students in the class
+    const classStudents = await prisma.classStudent.findMany({
+      where: { classId: params.id },
+      select: { studentId: true }
+    })
+
+    // Create assignment and enroll all students in the course
     const assignment = await prisma.assignment.create({
       data: {
         classId: params.id,
@@ -59,6 +65,27 @@ export async function POST(
         title: 'Course Assignment'
       }
     })
+
+    // Auto-enroll all students in the class to this course
+    await Promise.all(
+      classStudents.map(({ studentId }) =>
+        prisma.enrollment.upsert({
+          where: {
+            userId_courseId: {
+              userId: studentId,
+              courseId: courseId
+            }
+          },
+          create: {
+            userId: studentId,
+            courseId: courseId,
+            status: 'NOT_STARTED',
+            progress: 0
+          },
+          update: {} // If already enrolled, don't change anything
+        })
+      )
+    )
 
     return NextResponse.json(assignment)
   } catch (error) {
