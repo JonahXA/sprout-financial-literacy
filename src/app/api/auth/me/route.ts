@@ -21,7 +21,12 @@ export async function GET() {
           include: {
             class: {
               include: {
-                teacher: true
+                teacher: true,
+                assignments: {
+                  include: {
+                    course: true
+                  }
+                }
               }
             }
           }

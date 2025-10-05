@@ -10,6 +10,7 @@ export default function TeacherDashboard() {
   const [newClassName, setNewClassName] = useState('')
   const [newClassDescription, setNewClassDescription] = useState('')
   const [loading, setLoading] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -80,8 +81,18 @@ export default function TeacherDashboard() {
 
   return (
     <div className="flex h-screen bg-gray-50">
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
       {/* Sidebar */}
-      <div className="w-72 gradient-dark text-white">
+      <div className={`w-72 gradient-dark text-white fixed lg:static inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      }`}>
         <div className="p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold">🌱 Sprout Teacher</h2>
           <p className="text-sm opacity-80 mt-1">{user.school?.name}</p>
@@ -114,7 +125,16 @@ export default function TeacherDashboard() {
       <div className="flex-1 flex flex-col">
         <header className="bg-white shadow-sm px-6 py-4 border-b-2">
           <div className="flex justify-between items-center">
-            <div>
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="lg:hidden text-gray-600 hover:text-gray-900 mr-4"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div className="flex-1 lg:flex-none">
               <h1 className="text-2xl font-bold text-gray-900">Teacher Dashboard</h1>
               <p className="text-sm text-gray-600">Manage your classes and track student progress</p>
             </div>

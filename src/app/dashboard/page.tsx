@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<'learn' | 'progress' | 'leaderboard' | 'challenges'>('learn')
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null)
   const [completingLesson, setCompletingLesson] = useState<string | null>(null)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -136,8 +137,18 @@ export default function Dashboard() {
 
   return (
     <div className="flex h-screen bg-gray-50">
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
       {/* Sidebar */}
-      <div className="w-72 gradient-dark text-white">
+      <div className={`w-72 gradient-dark text-white fixed lg:static inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out ${
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      }`}>
         <div className="p-6 border-b border-gray-700">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             🌱 Sprout
@@ -152,28 +163,40 @@ export default function Dashboard() {
         
         <nav className="px-4 mt-4">
           <button
-            onClick={() => setActiveTab('learn')}
+            onClick={() => {
+              setActiveTab('learn')
+              setSidebarOpen(false)
+            }}
             className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'learn' ? 'bg-white bg-opacity-10' : ''}`}
           >
             <span className="text-xl mr-3">🏠</span>
             <span className="font-medium">Learn</span>
           </button>
           <button
-            onClick={() => setActiveTab('progress')}
+            onClick={() => {
+              setActiveTab('progress')
+              setSidebarOpen(false)
+            }}
             className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'progress' ? 'bg-white bg-opacity-10' : ''}`}
           >
             <span className="text-xl mr-3">📊</span>
             <span className="font-medium">Progress</span>
           </button>
           <button
-            onClick={() => setActiveTab('leaderboard')}
+            onClick={() => {
+              setActiveTab('leaderboard')
+              setSidebarOpen(false)
+            }}
             className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'leaderboard' ? 'bg-white bg-opacity-10' : ''}`}
           >
             <span className="text-xl mr-3">🏆</span>
             <span className="font-medium">Leaderboard</span>
           </button>
           <button
-            onClick={() => setActiveTab('challenges')}
+            onClick={() => {
+              setActiveTab('challenges')
+              setSidebarOpen(false)
+            }}
             className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'challenges' ? 'bg-white bg-opacity-10' : ''}`}
           >
             <span className="text-xl mr-3">🎯</span>
@@ -196,7 +219,16 @@ export default function Dashboard() {
       <div className="flex-1 flex flex-col">
         <header className="bg-white shadow-sm px-6 py-4 border-b-2 border-gray-100">
           <div className="flex justify-between items-center">
-            <div>
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="lg:hidden text-gray-600 hover:text-gray-900 mr-4"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <div className="flex-1 lg:flex-none">
               <h1 className="text-2xl font-bold text-gray-900">
                 Welcome back, {user.firstName}! 👋
               </h1>
@@ -204,16 +236,16 @@ export default function Dashboard() {
                 Ready to continue your financial journey?
               </p>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-[#ffc800]">⚡ {user.totalPoints || 0}</p>
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="text-center hidden sm:block">
+                <p className="text-xl md:text-2xl font-bold text-[#ffc800]">⚡ {user.totalPoints || 0}</p>
                 <p className="text-xs text-gray-500">Total XP</p>
               </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-[#ff4b4b]">🔥 {user.currentStreak || 0}</p>
+              <div className="text-center hidden sm:block">
+                <p className="text-xl md:text-2xl font-bold text-[#ff4b4b]">🔥 {user.currentStreak || 0}</p>
                 <p className="text-xs text-gray-500">Day Streak</p>
               </div>
-              <div className="w-12 h-12 bg-gradient-to-br from-[#1cb0f6] to-[#0a1628] rounded-full flex items-center justify-center text-white font-bold text-lg border-3 border-white shadow-lg">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-[#1cb0f6] to-[#0a1628] rounded-full flex items-center justify-center text-white font-bold text-base md:text-lg border-3 border-white shadow-lg">
                 {user.firstName[0]}
               </div>
             </div>
@@ -314,11 +346,38 @@ export default function Dashboard() {
                     const isInProgress = enrollment.status === 'IN_PROGRESS' || enrollment.progress > 0
                     const isCompleted = enrollment.status === 'COMPLETED'
 
+                    // Find due date from class assignments
+                    let dueDate = null
+                    let isOverdue = false
+                    let isDueSoon = false
+
+                    if (user.enrolledClasses) {
+                      for (const classEnrollment of user.enrolledClasses) {
+                        const assignment = classEnrollment.class.assignments?.find(
+                          (a: any) => a.courseId === enrollment.courseId
+                        )
+                        if (assignment?.dueDate) {
+                          dueDate = new Date(assignment.dueDate)
+                          const now = new Date()
+                          const threeDaysFromNow = new Date()
+                          threeDaysFromNow.setDate(now.getDate() + 3)
+
+                          isOverdue = dueDate < now && !isCompleted
+                          isDueSoon = dueDate <= threeDaysFromNow && dueDate >= now && !isCompleted
+                          break
+                        }
+                      }
+                    }
+
                     return (
                       <div
                         key={enrollment.id}
                         className={`p-4 border-2 rounded-xl ${
-                          isCompleted
+                          isOverdue
+                            ? 'border-red-500 bg-red-50'
+                            : isDueSoon
+                            ? 'border-yellow-500 bg-yellow-50'
+                            : isCompleted
                             ? 'border-gray-300 bg-gray-50'
                             : isInProgress
                             ? 'border-[#58cc02] bg-green-50'
@@ -353,6 +412,18 @@ export default function Dashboard() {
                         <div className="text-xs text-gray-500 mb-3">
                           {enrollment.course.duration} minutes • {enrollment.course.category}
                         </div>
+                        {dueDate && (
+                          <div className={`text-xs font-semibold mb-3 px-3 py-2 rounded-lg ${
+                            isOverdue
+                              ? 'bg-red-100 text-red-700'
+                              : isDueSoon
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-blue-100 text-blue-700'
+                          }`}>
+                            {isOverdue ? '⚠️ Overdue: ' : isDueSoon ? '⏰ Due Soon: ' : '📅 Due: '}
+                            {dueDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          </div>
+                        )}
                         <button
                           onClick={() => completeLesson(enrollment.courseId)}
                           disabled={isCompleted || completingLesson === enrollment.courseId}

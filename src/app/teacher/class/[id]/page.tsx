@@ -15,6 +15,7 @@ export default function ClassDetail() {
   const [dueDate, setDueDate] = useState('')
   const [editName, setEditName] = useState('')
   const [editDescription, setEditDescription] = useState('')
+  const [progressFilter, setProgressFilter] = useState<'all' | 'not_started' | 'in_progress' | 'completed'>('all')
   const router = useRouter()
   const params = useParams()
 
@@ -197,17 +198,67 @@ export default function ClassDetail() {
           {/* Students List */}
           <div className="lg:col-span-2">
             <div className="card">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">
-                Students ({students.length})
-              </h2>
-              
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-bold text-gray-900">
+                  Students ({students.length})
+                </h2>
+
+                {/* Progress Filter */}
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setProgressFilter('all')}
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      progressFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => setProgressFilter('not_started')}
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      progressFilter === 'not_started' ? 'bg-red-600 text-white' : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Not Started
+                  </button>
+                  <button
+                    onClick={() => setProgressFilter('in_progress')}
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      progressFilter === 'in_progress' ? 'bg-yellow-600 text-white' : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    In Progress
+                  </button>
+                  <button
+                    onClick={() => setProgressFilter('completed')}
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      progressFilter === 'completed' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-700'
+                    }`}
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+
               {students.length === 0 ? (
                 <p className="text-gray-500 text-center py-8">
                   No students yet. Share the class code: <span className="font-mono font-bold">{classData.code}</span>
                 </p>
               ) : (
                 <div className="space-y-2">
-                  {students.map((enrollment: any) => (
+                  {students.filter((enrollment: any) => {
+                    if (progressFilter === 'all') return true
+
+                    const studentEnrollments = enrollment.student.enrollments || []
+                    const hasNotStarted = studentEnrollments.some((e: any) => e.progress === 0)
+                    const hasInProgress = studentEnrollments.some((e: any) => e.progress > 0 && e.progress < 100)
+                    const hasCompleted = studentEnrollments.some((e: any) => e.progress === 100)
+
+                    if (progressFilter === 'not_started') return hasNotStarted
+                    if (progressFilter === 'in_progress') return hasInProgress
+                    if (progressFilter === 'completed') return hasCompleted
+                    return true
+                  }).map((enrollment: any) => (
                     <div key={enrollment.student.id} className="p-4 bg-gray-50 rounded-lg mb-3">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-3">
@@ -255,20 +306,32 @@ export default function ClassDetail() {
                       {/* Course Progress Details */}
                       {enrollment.student.enrollments && enrollment.student.enrollments.length > 0 && (
                         <div className="mt-3 space-y-2">
-                          {enrollment.student.enrollments.map((courseEnrollment: any) => (
-                            <div key={courseEnrollment.id} className="bg-white rounded p-2">
-                              <div className="flex justify-between items-center mb-1">
-                                <p className="text-xs font-medium text-gray-700">{courseEnrollment.course?.title || 'Course'}</p>
-                                <span className="text-xs font-bold text-gray-600">{Math.round(courseEnrollment.progress)}%</span>
-                              </div>
+                          {enrollment.student.enrollments.map((courseEnrollment: any) => {
+                            const progress = Math.round(courseEnrollment.progress)
+                            const status = progress === 0 ? 'not_started' : progress === 100 ? 'completed' : 'in_progress'
+
+                            return (
+                              <div key={courseEnrollment.id} className="bg-white rounded p-2">
+                                <div className="flex justify-between items-center mb-1">
+                                  <div className="flex items-center gap-2">
+                                    <span className={`w-2 h-2 rounded-full ${
+                                      status === 'completed' ? 'bg-green-500' :
+                                      status === 'in_progress' ? 'bg-yellow-500' :
+                                      'bg-red-500'
+                                    }`}></span>
+                                    <p className="text-xs font-medium text-gray-700">{courseEnrollment.course?.title || 'Course'}</p>
+                                  </div>
+                                  <span className="text-xs font-bold text-gray-600">{progress}%</span>
+                                </div>
                               <div className="w-full bg-gray-200 rounded-full h-1.5">
                                 <div
                                   className="bg-[#58cc02] h-1.5 rounded-full"
                                   style={{width: `${courseEnrollment.progress}%`}}
                                 ></div>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            )
+                          })}
                         </div>
                       )}
                     </div>
