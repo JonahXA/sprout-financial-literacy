@@ -1,22 +1,30 @@
 'use client'
 
-const badges = [
-  { id: 1, name: 'First Steps', icon: '🎯', earned: true, xp: 10, description: 'Complete your first lesson' },
-  { id: 2, name: 'Week Warrior', icon: '⚔️', earned: true, xp: 50, description: '7 day streak' },
-  { id: 3, name: 'Budget Master', icon: '💰', earned: false, xp: 100, description: 'Complete budgeting course' },
-  { id: 4, name: 'Quick Learner', icon: '⚡', earned: false, xp: 25, description: 'Complete 3 lessons in one day' },
-  { id: 5, name: 'Perfect Score', icon: '💯', earned: false, xp: 75, description: 'Get 100% on any quiz' },
-  { id: 6, name: 'Night Owl', icon: '🦉', earned: false, xp: 20, description: 'Study after 10 PM' },
-]
+interface AchievementBadgesProps {
+  totalPoints: number
+  currentStreak: number
+  completedCourses: number
+}
 
-export default function AchievementBadges() {
+export default function AchievementBadges({ totalPoints, currentStreak, completedCourses }: AchievementBadgesProps) {
+  const badges = [
+    { id: 1, name: 'First Steps', icon: '🎯', earned: totalPoints > 0, description: 'Earn your first XP' },
+    { id: 2, name: 'On Fire', icon: '🔥', earned: currentStreak >= 3, description: '3 day streak' },
+    { id: 3, name: 'Week Warrior', icon: '⚔️', earned: currentStreak >= 7, description: '7 day streak' },
+    { id: 4, name: 'Rising Star', icon: '⭐', earned: totalPoints >= 100, description: 'Reach 100 XP' },
+    { id: 5, name: 'Course Master', icon: '🎓', earned: completedCourses >= 1, description: 'Complete a course' },
+    { id: 6, name: 'Champion', icon: '👑', earned: totalPoints >= 500, description: 'Reach 500 XP' },
+  ]
+
+  const earnedCount = badges.filter(b => b.earned).length
+
   return (
     <div className="game-card">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-bold text-gray-900">Achievements</h3>
-        <span className="text-sm font-semibold text-[#58cc02]">2/6 Unlocked</span>
+        <span className="text-sm font-semibold text-[#58cc02]">{earnedCount}/{badges.length} Unlocked</span>
       </div>
-      
+
       <div className="grid grid-cols-3 gap-3">
         {badges.map((badge) => (
           <div
@@ -26,6 +34,7 @@ export default function AchievementBadges() {
                 ? 'bg-gradient-to-br from-[#ffc800] to-[#ff9500] text-white shadow-lg transform hover:scale-105'
                 : 'bg-gray-100 text-gray-400 opacity-60'
             }`}
+            title={badge.description}
           >
             <div className="text-3xl mb-1">{badge.icon}</div>
             <p className="text-xs font-bold">{badge.name}</p>

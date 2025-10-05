@@ -12,10 +12,13 @@ export default function Dashboard() {
   const [showLevelUp, setShowLevelUp] = useState(false)
   const [showXPNotification, setShowXPNotification] = useState(false)
   const [xpEarned, setXpEarned] = useState(0)
+  const [leaderboard, setLeaderboard] = useState<any[]>([])
+  const [userRank, setUserRank] = useState<number | null>(null)
   const router = useRouter()
 
   useEffect(() => {
     fetchUserData()
+    fetchLeaderboard()
   }, [])
 
   const fetchUserData = async () => {
@@ -32,6 +35,19 @@ export default function Dashboard() {
       router.push('/login')
     } finally {
       setLoading(false)
+    }
+  }
+
+  const fetchLeaderboard = async () => {
+    try {
+      const res = await fetch('/api/student/leaderboard')
+      if (res.ok) {
+        const data = await res.json()
+        setLeaderboard(data.leaderboard)
+        setUserRank(data.userRank)
+      }
+    } catch (error) {
+      console.error('Error fetching leaderboard:', error)
     }
   }
 
@@ -62,8 +78,9 @@ export default function Dashboard() {
           setTimeout(() => setShowLevelUp(false), 4000)
         }
 
-        // Refresh user data
+        // Refresh user data and leaderboard
         fetchUserData()
+        fetchLeaderboard()
       } else {
         const error = await res.json()
         alert(error.error || 'Failed to complete lesson')
@@ -218,38 +235,15 @@ export default function Dashboard() {
               </div>
             </div>
           )}
-          {/* Daily Goals */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+          {/* Gamification Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <StreakCounter streak={user.currentStreak || 0} />
-            
-            <div className="game-card">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Today's Goal</h3>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-green-50 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">✅</span>
-                    <span className="font-medium">Complete 1 lesson</span>
-                  </div>
-                  <span className="text-[#58cc02] font-bold">+20 XP</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">⏳</span>
-                    <span className="font-medium">Practice for 10 mins</span>
-                  </div>
-                  <span className="text-gray-400 font-bold">+15 XP</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">📝</span>
-                    <span className="font-medium">Get 80% on quiz</span>
-                  </div>
-                  <span className="text-gray-400 font-bold">+30 XP</span>
-                </div>
-              </div>
-            </div>
 
-            <AchievementBadges />
+            <AchievementBadges
+              totalPoints={user.totalPoints || 0}
+              currentStreak={user.currentStreak || 0}
+              completedCourses={user.enrollments?.filter((e: any) => e.status === 'COMPLETED').length || 0}
+            />
           </div>
 
           {/* My Courses Section - For Students */}
@@ -333,31 +327,43 @@ export default function Dashboard() {
           {/* Leaderboard Preview */}
           <div className="game-card mb-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold text-gray-900">Weekly Leaderboard</h3>
-              <span className="text-sm font-semibold text-[#1cb0f6]">You're #2!</span>
+              <h3 className="text-xl font-bold text-gray-900">School Leaderboard</h3>
+              {userRank && (
+                <span className="text-sm font-semibold text-[#1cb0f6]">You're #{userRank}!</span>
+              )}
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#ffc800] to-[#ff9500] rounded-xl text-white">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">👑</span>
-                  <span className="font-bold">Sarah Chen</span>
+              {leaderboard.length > 0 ? (
+                leaderboard.slice(0, 5).map((student, index) => {
+                  const isCurrentUser = student.id === user?.id
+                  const medal = index === 0 ? '👑' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`
+
+                  return (
+                    <div
+                      key={student.id}
+                      className={`flex items-center justify-between p-3 rounded-xl ${
+                        index === 0
+                          ? 'bg-gradient-to-r from-[#ffc800] to-[#ff9500] text-white'
+                          : isCurrentUser
+                          ? 'bg-gradient-to-r from-[#1cb0f6] to-[#0a1628] text-white'
+                          : 'bg-gray-100'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{medal}</span>
+                        <span className="font-bold">
+                          {isCurrentUser ? 'You' : `${student.firstName} ${student.lastName}`}
+                        </span>
+                      </div>
+                      <span className="font-bold">{student.totalPoints} XP</span>
+                    </div>
+                  )
+                })
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-500">No students yet. Start learning to get on the leaderboard!</p>
                 </div>
-                <span className="font-bold">680 XP</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#1cb0f6] to-[#0a1628] rounded-xl text-white">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">🥈</span>
-                  <span className="font-bold">You</span>
-                </div>
-                <span className="font-bold">450 XP</span>
-              </div>
-              <div className="flex items-center justify-between p-3 bg-gray-100 rounded-xl">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">🥉</span>
-                  <span className="font-bold">Mike Johnson</span>
-                </div>
-                <span className="font-bold">420 XP</span>
-              </div>
+              )}
             </div>
           </div>
 
