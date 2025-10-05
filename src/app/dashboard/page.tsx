@@ -6,6 +6,7 @@ import XPBar from '@/components/gamification/XPBar'
 import StreakCounter from '@/components/gamification/StreakCounter'
 import AchievementBadges from '@/components/gamification/AchievementBadges'
 import Toast from '@/components/Toast'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default function Dashboard() {
   const [user, setUser] = useState<any>(null)
@@ -17,6 +18,7 @@ export default function Dashboard() {
   const [userRank, setUserRank] = useState<number | null>(null)
   const [activeTab, setActiveTab] = useState<'learn' | 'progress' | 'leaderboard' | 'challenges'>('learn')
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null)
+  const [completingLesson, setCompletingLesson] = useState<string | null>(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -59,7 +61,30 @@ export default function Dashboard() {
     router.push('/')
   }
 
+  const leaveClass = async (classId: string, className: string) => {
+    if (!confirm(`Are you sure you want to leave "${className}"? You'll need a new join code to rejoin.`)) return
+
+    try {
+      const res = await fetch('/api/student/leave-class', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ classId })
+      })
+
+      if (res.ok) {
+        setToast({ message: `Successfully left ${className}`, type: 'success' })
+        fetchUserData()
+      } else {
+        const data = await res.json()
+        setToast({ message: data.error || 'Failed to leave class', type: 'error' })
+      }
+    } catch (error) {
+      setToast({ message: 'Failed to leave class', type: 'error' })
+    }
+  }
+
   const completeLesson = async (courseId: string) => {
+    setCompletingLesson(courseId)
     try {
       const res = await fetch('/api/student/complete-lesson', {
         method: 'POST',
@@ -82,8 +107,8 @@ export default function Dashboard() {
         }
 
         // Refresh user data and leaderboard
-        fetchUserData()
-        fetchLeaderboard()
+        await fetchUserData()
+        await fetchLeaderboard()
       } else {
         const error = await res.json()
         setToast({ message: error.error || 'Failed to complete lesson', type: 'error' })
@@ -91,6 +116,8 @@ export default function Dashboard() {
     } catch (error) {
       console.error('Error completing lesson:', error)
       setToast({ message: 'Failed to complete lesson', type: 'error' })
+    } finally {
+      setCompletingLesson(null)
     }
   }
 
@@ -246,9 +273,18 @@ export default function Dashboard() {
               <h3 className="text-lg font-bold text-gray-900 mb-4">My Classes</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {user.enrolledClasses.map((enrollment: any) => (
-                  <div key={enrollment.id} className="p-3 bg-gray-50 rounded-lg">
-                    <p className="font-semibold text-sm">{enrollment.class.name}</p>
-                    <p className="text-xs text-gray-500">Teacher: {enrollment.class.teacher.firstName} {enrollment.class.teacher.lastName}</p>
+                  <div key={enrollment.id} className="p-3 bg-gray-50 rounded-lg flex items-center justify-between">
+                    <div className="flex-1">
+                      <p className="font-semibold text-sm">{enrollment.class.name}</p>
+                      <p className="text-xs text-gray-500">Teacher: {enrollment.class.teacher.firstName} {enrollment.class.teacher.lastName}</p>
+                    </div>
+                    <button
+                      onClick={() => leaveClass(enrollment.class.id, enrollment.class.name)}
+                      className="text-red-500 hover:text-red-700 text-sm ml-3"
+                      title="Leave class"
+                    >
+                      Leave
+                    </button>
                   </div>
                 ))}
               </div>
@@ -319,8 +355,8 @@ export default function Dashboard() {
                         </div>
                         <button
                           onClick={() => completeLesson(enrollment.courseId)}
-                          disabled={isCompleted}
-                          className={`w-full mt-3 py-2 text-sm ${
+                          disabled={isCompleted || completingLesson === enrollment.courseId}
+                          className={`w-full mt-3 py-2 text-sm flex items-center justify-center gap-2 ${
                             isCompleted
                               ? 'btn-primary bg-gray-400 cursor-not-allowed'
                               : isInProgress
@@ -328,7 +364,14 @@ export default function Dashboard() {
                               : 'btn-primary'
                           }`}
                         >
-                          {isCompleted ? '✓ Completed' : isInProgress ? 'Continue Lesson (+10 XP)' : 'Start Course (+10 XP)'}
+                          {completingLesson === enrollment.courseId ? (
+                            <>
+                              <LoadingSpinner size="sm" />
+                              <span>Processing...</span>
+                            </>
+                          ) : (
+                            <span>{isCompleted ? '✓ Completed' : isInProgress ? 'Continue Lesson (+10 XP)' : 'Start Course (+10 XP)'}</span>
+                          )}
                         </button>
                       </div>
                     )

@@ -10,8 +10,11 @@ export default function ClassDetail() {
   const [assignments, setAssignments] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [showAssignModal, setShowAssignModal] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
   const [dueDate, setDueDate] = useState('')
+  const [editName, setEditName] = useState('')
+  const [editDescription, setEditDescription] = useState('')
   const router = useRouter()
   const params = useParams()
 
@@ -76,19 +79,59 @@ export default function ClassDetail() {
 
   const removeStudent = async (studentId: string) => {
     if (!confirm('Remove this student from the class?')) return
-    
+
     try {
       const res = await fetch(`/api/teacher/classes/${params.id}/remove-student`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ studentId })
       })
-      
+
       if (res.ok) {
         fetchClassData()
       }
     } catch (error) {
       console.error('Error removing student:', error)
+    }
+  }
+
+  const updateClass = async () => {
+    if (!editName.trim()) return
+
+    try {
+      const res = await fetch(`/api/teacher/classes/${params.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: editName,
+          description: editDescription
+        })
+      })
+
+      if (res.ok) {
+        setShowEditModal(false)
+        fetchClassData()
+      }
+    } catch (error) {
+      console.error('Error updating class:', error)
+    }
+  }
+
+  const archiveClass = async () => {
+    if (!confirm('Archive this class? Students will no longer be able to access it.')) return
+
+    try {
+      const res = await fetch(`/api/teacher/classes/${params.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isActive: false })
+      })
+
+      if (res.ok) {
+        router.push('/teacher')
+      }
+    } catch (error) {
+      console.error('Error archiving class:', error)
     }
   }
 
@@ -113,12 +156,35 @@ export default function ClassDetail() {
                 <p className="text-sm text-gray-600">Class Code: <span className="font-mono font-bold text-blue-600">{classData.code}</span></p>
               </div>
             </div>
-            <div className="flex gap-3">
-              <button 
+            <div className="flex gap-3 flex-wrap">
+              <button
+                onClick={() => {
+                  setEditName(classData.name)
+                  setEditDescription(classData.description || '')
+                  setShowEditModal(true)
+                }}
+                className="btn-primary bg-gray-600 hover:bg-gray-700"
+              >
+                ✏️ Edit
+              </button>
+              <button
                 onClick={() => setShowAssignModal(true)}
                 className="btn-primary"
               >
-                📚 Assign Course
+                📚 Assign
+              </button>
+              <a
+                href={`/api/teacher/classes/${params.id}/export`}
+                download
+                className="btn-primary bg-green-600 hover:bg-green-700"
+              >
+                📊 Export CSV
+              </a>
+              <button
+                onClick={archiveClass}
+                className="btn-primary bg-red-600 hover:bg-red-700"
+              >
+                🗄️ Archive
               </button>
             </div>
           </div>
@@ -258,6 +324,57 @@ export default function ClassDetail() {
           </div>
         </div>
       </div>
+
+      {/* Edit Class Modal */}
+      {showEditModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-xl p-6 max-w-md w-full">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Edit Class</h3>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Class Name
+              </label>
+              <input
+                type="text"
+                value={editName}
+                onChange={(e) => setEditName(e.target.value)}
+                className="input-field"
+                placeholder="e.g., Period 1 - Financial Literacy"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Description (Optional)
+              </label>
+              <textarea
+                value={editDescription}
+                onChange={(e) => setEditDescription(e.target.value)}
+                className="input-field"
+                rows={3}
+                placeholder="Brief description..."
+              />
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={updateClass}
+                disabled={!editName.trim()}
+                className="btn-success flex-1"
+              >
+                Save Changes
+              </button>
+              <button
+                onClick={() => setShowEditModal(false)}
+                className="btn-primary bg-gray-500 hover:bg-gray-600 flex-1"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Assign Course Modal */}
       {showAssignModal && (

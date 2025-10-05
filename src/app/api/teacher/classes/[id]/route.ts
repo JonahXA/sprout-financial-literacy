@@ -80,3 +80,45 @@ export async function GET(
     return NextResponse.json({ error: 'Failed to fetch class' }, { status: 500 })
   }
 }
+
+export async function PATCH(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const user = await getUser()
+    if (!user || user.role !== 'TEACHER') {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const body = await request.json()
+    const { name, description, isActive } = body
+
+    // Verify the class belongs to this teacher
+    const existingClass = await prisma.class.findFirst({
+      where: {
+        id: params.id,
+        teacherId: user.id
+      }
+    })
+
+    if (!existingClass) {
+      return NextResponse.json({ error: 'Class not found' }, { status: 404 })
+    }
+
+    // Update the class
+    const updatedClass = await prisma.class.update({
+      where: { id: params.id },
+      data: {
+        ...(name !== undefined && { name }),
+        ...(description !== undefined && { description }),
+        ...(isActive !== undefined && { isActive })
+      }
+    })
+
+    return NextResponse.json(updatedClass)
+  } catch (error) {
+    console.error('Update class error:', error)
+    return NextResponse.json({ error: 'Failed to update class' }, { status: 500 })
+  }
+}
