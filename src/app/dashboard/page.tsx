@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import XPBar from '@/components/gamification/XPBar'
 import StreakCounter from '@/components/gamification/StreakCounter'
 import AchievementBadges from '@/components/gamification/AchievementBadges'
+import Toast from '@/components/Toast'
 
 export default function Dashboard() {
   const [user, setUser] = useState<any>(null)
@@ -15,6 +16,7 @@ export default function Dashboard() {
   const [leaderboard, setLeaderboard] = useState<any[]>([])
   const [userRank, setUserRank] = useState<number | null>(null)
   const [activeTab, setActiveTab] = useState<'learn' | 'progress' | 'leaderboard' | 'challenges'>('learn')
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -84,11 +86,11 @@ export default function Dashboard() {
         fetchLeaderboard()
       } else {
         const error = await res.json()
-        alert(error.error || 'Failed to complete lesson')
+        setToast({ message: error.error || 'Failed to complete lesson', type: 'error' })
       }
     } catch (error) {
       console.error('Error completing lesson:', error)
-      alert('Failed to complete lesson')
+      setToast({ message: 'Failed to complete lesson', type: 'error' })
     }
   }
 
@@ -211,13 +213,14 @@ export default function Dashboard() {
                   })
                   const data = await res.json()
                   if (res.ok) {
-                    alert(`Successfully joined ${data.className}!`)
+                    setToast({ message: `Successfully joined ${data.className}!`, type: 'success' })
                     ;(e.target as any).code.value = ''
+                    fetchUserData()
                   } else {
-                    alert(data.error || 'Invalid class code')
+                    setToast({ message: data.error || 'Invalid class code', type: 'error' })
                   }
                 } catch (error) {
-                  alert('Failed to join class')
+                  setToast({ message: 'Failed to join class', type: 'error' })
                 }
               }}>
                 <div className="flex gap-3">
@@ -666,6 +669,15 @@ export default function Dashboard() {
             <p className="text-gray-500">Keep up the amazing work!</p>
           </div>
         </div>
+      )}
+
+      {/* Toast Notification */}
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
       )}
     </div>
   )

@@ -196,7 +196,7 @@ export default function TeacherDashboard() {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-500">Join Code:</span>
-                    <span className="font-mono font-bold text-blue-600">{classItem.code.slice(-6).toUpperCase()}</span>
+                    <span className="font-mono font-bold text-blue-600">{classItem.code}</span>
                   </div>
                 </div>
                 <button 

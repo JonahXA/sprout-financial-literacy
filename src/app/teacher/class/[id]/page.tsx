@@ -11,6 +11,7 @@ export default function ClassDetail() {
   const [loading, setLoading] = useState(true)
   const [showAssignModal, setShowAssignModal] = useState(false)
   const [selectedCourse, setSelectedCourse] = useState('')
+  const [dueDate, setDueDate] = useState('')
   const router = useRouter()
   const params = useParams()
 
@@ -51,17 +52,21 @@ export default function ClassDetail() {
 
   const assignCourse = async () => {
     if (!selectedCourse) return
-    
+
     try {
       const res = await fetch(`/api/teacher/classes/${params.id}/assign`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ courseId: selectedCourse })
+        body: JSON.stringify({
+          courseId: selectedCourse,
+          dueDate: dueDate || null
+        })
       })
-      
+
       if (res.ok) {
         setShowAssignModal(false)
         setSelectedCourse('')
+        setDueDate('')
         fetchClassData()
       }
     } catch (error) {
@@ -260,7 +265,7 @@ export default function ClassDetail() {
           <div className="bg-white rounded-xl p-6 max-w-md w-full">
             <h3 className="text-lg font-bold text-gray-900 mb-4">Assign Course</h3>
             
-            <select 
+            <select
               value={selectedCourse}
               onChange={(e) => setSelectedCourse(e.target.value)}
               className="input-field mb-4"
@@ -272,19 +277,33 @@ export default function ClassDetail() {
                 </option>
               ))}
             </select>
-            
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Due Date (Optional)
+              </label>
+              <input
+                type="date"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+                className="input-field"
+                min={new Date().toISOString().split('T')[0]}
+              />
+            </div>
+
             <div className="flex gap-3">
-              <button 
+              <button
                 onClick={assignCourse}
                 disabled={!selectedCourse}
                 className="btn-success flex-1"
               >
                 Assign
               </button>
-              <button 
+              <button
                 onClick={() => {
                   setShowAssignModal(false)
                   setSelectedCourse('')
+                  setDueDate('')
                 }}
                 className="btn-primary bg-gray-500 hover:bg-gray-600 flex-1"
               >

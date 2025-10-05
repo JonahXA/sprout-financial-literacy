@@ -25,7 +25,7 @@ export async function POST(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { courseId } = await request.json()
+    const { courseId, dueDate } = await request.json()
 
     // Verify the class belongs to this teacher
     const classData = await prisma.class.findFirst({
@@ -62,7 +62,8 @@ export async function POST(
       data: {
         classId: params.id,
         courseId: courseId,
-        title: 'Course Assignment'
+        title: 'Course Assignment',
+        dueDate: dueDate ? new Date(dueDate) : null
       }
     })
 

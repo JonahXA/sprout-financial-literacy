@@ -41,6 +41,16 @@ export async function GET() {
   }
 }
 
+// Helper function to generate readable 6-character join code
+function generateJoinCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' // Removed ambiguous chars: 0, O, 1, I
+  let code = ''
+  for (let i = 0; i < 6; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length))
+  }
+  return code
+}
+
 export async function POST(request: Request) {
   try {
     const user = await getUser()
@@ -51,7 +61,16 @@ export async function POST(request: Request) {
     const { name, description } = await request.json()
 
     // Generate a unique 6-character code
-    const code = Math.random().toString(36).substring(2, 8).toUpperCase()
+    let code = generateJoinCode()
+    let attempts = 0
+
+    // Ensure code is unique (retry up to 10 times if collision)
+    while (attempts < 10) {
+      const existing = await prisma.class.findUnique({ where: { code } })
+      if (!existing) break
+      code = generateJoinCode()
+      attempts++
+    }
 
     const newClass = await prisma.class.create({
       data: {
