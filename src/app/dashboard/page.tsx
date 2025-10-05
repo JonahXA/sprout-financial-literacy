@@ -14,6 +14,7 @@ export default function Dashboard() {
   const [xpEarned, setXpEarned] = useState(0)
   const [leaderboard, setLeaderboard] = useState<any[]>([])
   const [userRank, setUserRank] = useState<number | null>(null)
+  const [activeTab, setActiveTab] = useState<'learn' | 'progress' | 'leaderboard' | 'challenges'>('learn')
   const router = useRouter()
 
   useEffect(() => {
@@ -121,19 +122,31 @@ export default function Dashboard() {
         </div>
         
         <nav className="px-4 mt-4">
-          <button className="sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 bg-white bg-opacity-5">
+          <button
+            onClick={() => setActiveTab('learn')}
+            className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'learn' ? 'bg-white bg-opacity-10' : ''}`}
+          >
             <span className="text-xl mr-3">🏠</span>
             <span className="font-medium">Learn</span>
           </button>
-          <button className="sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10">
+          <button
+            onClick={() => setActiveTab('progress')}
+            className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'progress' ? 'bg-white bg-opacity-10' : ''}`}
+          >
             <span className="text-xl mr-3">📊</span>
             <span className="font-medium">Progress</span>
           </button>
-          <button className="sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10">
+          <button
+            onClick={() => setActiveTab('leaderboard')}
+            className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'leaderboard' ? 'bg-white bg-opacity-10' : ''}`}
+          >
             <span className="text-xl mr-3">🏆</span>
             <span className="font-medium">Leaderboard</span>
           </button>
-          <button className="sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10">
+          <button
+            onClick={() => setActiveTab('challenges')}
+            className={`sidebar-item flex items-center px-4 py-3 rounded-xl mb-2 w-full text-left hover:bg-white hover:bg-opacity-10 transition-all ${activeTab === 'challenges' ? 'bg-white bg-opacity-10' : ''}`}
+          >
             <span className="text-xl mr-3">🎯</span>
             <span className="font-medium">Challenges</span>
           </button>
@@ -179,6 +192,9 @@ export default function Dashboard() {
         </header>
         
         <main className="flex-1 overflow-auto p-6 bg-gradient-to-br from-gray-50 to-gray-100">
+          {/* Learn Tab */}
+          {activeTab === 'learn' && (
+            <>
 	{/* Join Class Section - For Students Only */}
           {user.role === 'STUDENT' && (
             <div className="game-card mb-6 bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-200">
@@ -381,6 +397,244 @@ export default function Dashboard() {
                 >
                   Go to Teacher Dashboard →
                 </button>
+              </div>
+            </div>
+          )}
+            </>
+          )}
+
+          {/* Progress Tab */}
+          {activeTab === 'progress' && (
+            <div className="space-y-6">
+              <div className="game-card">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Your Progress</h2>
+
+                {/* Overall Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                  <div className="bg-gradient-to-br from-[#ffc800] to-[#ff9500] text-white p-4 rounded-xl">
+                    <p className="text-sm opacity-90">Total XP</p>
+                    <p className="text-3xl font-bold">{user.totalPoints || 0}</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-[#ff4b4b] to-[#ff2d2d] text-white p-4 rounded-xl">
+                    <p className="text-sm opacity-90">Current Streak</p>
+                    <p className="text-3xl font-bold">{user.currentStreak || 0} 🔥</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-[#58cc02] to-[#3d9b00] text-white p-4 rounded-xl">
+                    <p className="text-sm opacity-90">Courses Completed</p>
+                    <p className="text-3xl font-bold">
+                      {user.enrollments?.filter((e: any) => e.status === 'COMPLETED').length || 0}
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-br from-[#1cb0f6] to-[#0a7ea4] text-white p-4 rounded-xl">
+                    <p className="text-sm opacity-90">Current Level</p>
+                    <p className="text-3xl font-bold">{Math.floor((user.totalPoints || 0) / 100) + 1}</p>
+                  </div>
+                </div>
+
+                {/* Course Progress Details */}
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Course Progress</h3>
+                {user.enrollments && user.enrollments.length > 0 ? (
+                  <div className="space-y-3">
+                    {user.enrollments.map((enrollment: any) => (
+                      <div key={enrollment.id} className="p-4 bg-gray-50 rounded-lg">
+                        <div className="flex justify-between items-center mb-2">
+                          <h4 className="font-bold text-gray-900">{enrollment.course.title}</h4>
+                          <span className={`text-xs font-bold px-3 py-1 rounded-full ${
+                            enrollment.status === 'COMPLETED'
+                              ? 'bg-green-100 text-green-700'
+                              : enrollment.progress > 0
+                              ? 'bg-blue-100 text-blue-700'
+                              : 'bg-gray-200 text-gray-700'
+                          }`}>
+                            {enrollment.status === 'COMPLETED' ? '✓ Completed' : enrollment.progress > 0 ? 'In Progress' : 'Not Started'}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="flex-1">
+                            <div className="w-full bg-gray-200 rounded-full h-3">
+                              <div
+                                className="bg-[#58cc02] h-3 rounded-full transition-all"
+                                style={{width: `${enrollment.progress}%`}}
+                              ></div>
+                            </div>
+                          </div>
+                          <span className="text-sm font-bold text-gray-700 min-w-[3rem] text-right">
+                            {Math.round(enrollment.progress)}%
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-500 mt-2">
+                          Started: {new Date(enrollment.startedAt).toLocaleDateString()}
+                          {enrollment.completedAt && ` • Completed: ${new Date(enrollment.completedAt).toLocaleDateString()}`}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500">No courses enrolled yet</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Leaderboard Tab */}
+          {activeTab === 'leaderboard' && (
+            <div className="space-y-6">
+              <div className="game-card">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">School Leaderboard</h2>
+                  {userRank && (
+                    <div className="bg-[#1cb0f6] text-white px-4 py-2 rounded-full font-bold">
+                      Your Rank: #{userRank}
+                    </div>
+                  )}
+                </div>
+
+                {leaderboard.length > 0 ? (
+                  <div className="space-y-3">
+                    {leaderboard.map((student, index) => {
+                      const isCurrentUser = student.id === user?.id
+                      const medal = index === 0 ? '👑' : index === 1 ? '🥈' : index === 2 ? '🥉' : null
+
+                      return (
+                        <div
+                          key={student.id}
+                          className={`flex items-center justify-between p-4 rounded-xl transition-all ${
+                            index === 0
+                              ? 'bg-gradient-to-r from-[#ffc800] to-[#ff9500] text-white shadow-lg'
+                              : index === 1
+                              ? 'bg-gradient-to-r from-[#c0c0c0] to-[#a8a8a8] text-white shadow-md'
+                              : index === 2
+                              ? 'bg-gradient-to-r from-[#cd7f32] to-[#b87333] text-white shadow-md'
+                              : isCurrentUser
+                              ? 'bg-gradient-to-r from-[#1cb0f6] to-[#0a1628] text-white'
+                              : 'bg-gray-100'
+                          }`}
+                        >
+                          <div className="flex items-center gap-4">
+                            <span className="text-2xl font-bold min-w-[3rem]">
+                              {medal || `#${index + 1}`}
+                            </span>
+                            <div>
+                              <p className="font-bold text-lg">
+                                {isCurrentUser ? 'You' : `${student.firstName} ${student.lastName}`}
+                              </p>
+                              <p className={`text-sm ${index < 3 || isCurrentUser ? 'opacity-90' : 'text-gray-600'}`}>
+                                {student.currentStreak > 0 && `🔥 ${student.currentStreak} day streak`}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-2xl font-bold">{student.totalPoints}</p>
+                            <p className={`text-xs ${index < 3 || isCurrentUser ? 'opacity-90' : 'text-gray-600'}`}>XP</p>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-gray-500">No leaderboard data yet</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Challenges Tab */}
+          {activeTab === 'challenges' && (
+            <div className="space-y-6">
+              <div className="game-card">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Daily Challenges</h2>
+
+                <div className="space-y-4">
+                  {/* Complete a lesson */}
+                  <div className={`p-4 rounded-xl border-2 ${
+                    user.totalPoints > 0 ? 'bg-green-50 border-[#58cc02]' : 'bg-gray-50 border-gray-200'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <span className="text-4xl">
+                          {user.totalPoints > 0 ? '✅' : '⏳'}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-gray-900">Complete a Lesson</h3>
+                          <p className="text-sm text-gray-600">Earn XP by completing any lesson today</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-[#ffc800]">+20 XP</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Maintain streak */}
+                  <div className={`p-4 rounded-xl border-2 ${
+                    user.currentStreak >= 3 ? 'bg-green-50 border-[#58cc02]' : 'bg-gray-50 border-gray-200'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <span className="text-4xl">
+                          {user.currentStreak >= 3 ? '✅' : '🔥'}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-gray-900">Build a 3-Day Streak</h3>
+                          <p className="text-sm text-gray-600">
+                            Learn for 3 days in a row ({user.currentStreak}/3)
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-[#ffc800]">+50 XP</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Complete a course */}
+                  <div className={`p-4 rounded-xl border-2 ${
+                    (user.enrollments?.filter((e: any) => e.status === 'COMPLETED').length || 0) > 0
+                      ? 'bg-green-50 border-[#58cc02]'
+                      : 'bg-gray-50 border-gray-200'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <span className="text-4xl">
+                          {(user.enrollments?.filter((e: any) => e.status === 'COMPLETED').length || 0) > 0 ? '✅' : '🎓'}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-gray-900">Complete a Course</h3>
+                          <p className="text-sm text-gray-600">Finish any course at 100%</p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-2xl font-bold text-[#ffc800]">+100 XP</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Reach 100 XP */}
+                  <div className={`p-4 rounded-xl border-2 ${
+                    user.totalPoints >= 100 ? 'bg-green-50 border-[#58cc02]' : 'bg-gray-50 border-gray-200'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <span className="text-4xl">
+                          {user.totalPoints >= 100 ? '✅' : '⭐'}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-gray-900">Reach 100 XP</h3>
+                          <p className="text-sm text-gray-600">
+                            Earn a total of 100 XP ({user.totalPoints}/100)
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-[#58cc02]">Achievement!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
