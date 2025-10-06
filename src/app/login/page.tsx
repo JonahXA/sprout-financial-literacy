@@ -65,7 +65,7 @@ export default function Login() {
             />
           </div>
 
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
@@ -77,6 +77,12 @@ export default function Login() {
               className="input-field"
               placeholder="••••••••"
             />
+          </div>
+
+          <div className="mb-6 text-right">
+            <a href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-800">
+              Forgot Password?
+            </a>
           </div>
 
           <button

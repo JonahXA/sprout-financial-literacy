@@ -174,6 +174,18 @@ export default function ClassDetail() {
               >
                 📚 Assign
               </button>
+              <button
+                onClick={() => router.push(`/teacher/class/${params.id}/gradebook`)}
+                className="btn-primary bg-purple-600 hover:bg-purple-700"
+              >
+                📝 Gradebook
+              </button>
+              <button
+                onClick={() => router.push(`/teacher/class/${params.id}/progress`)}
+                className="btn-primary bg-blue-600 hover:bg-blue-700"
+              >
+                📈 Progress Report
+              </button>
               <a
                 href={`/api/teacher/classes/${params.id}/export`}
                 download

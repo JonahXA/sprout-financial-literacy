@@ -100,3 +100,178 @@
 .animate-fade-in {
   animation: fadeIn 0.5s ease;
 }
+
+/* Mobile Responsiveness Enhancements */
+
+/* Touch-friendly tap targets (minimum 44x44px) */
+@layer utilities {
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+}
+
+/* Mobile-optimized buttons */
+@media (max-width: 640px) {
+  .btn-primary, .btn-success {
+    @apply px-4 py-2.5 text-sm;
+  }
+
+  .card, .game-card {
+    @apply p-4;
+  }
+
+  .input-field {
+    @apply text-base; /* Prevents zoom on iOS */
+  }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Mobile-friendly tables */
+.table-responsive {
+  @apply overflow-x-auto -mx-4 px-4;
+}
+
+@media (max-width: 640px) {
+  .table-responsive table {
+    @apply text-sm;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    @apply px-2 py-2;
+  }
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 p-2 z-40;
+}
+
+/* Improved touch scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Mobile-optimized modals */
+@media (max-width: 640px) {
+  .modal-content {
+    @apply max-h-[90vh] overflow-y-auto;
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-card {
+    @apply p-3;
+  }
+
+  h1 {
+    @apply text-xl;
+  }
+
+  h2 {
+    @apply text-lg;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-[#1cb0f6] ring-offset-2;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip to content link */
+.skip-link {
+  @apply sr-only focusable;
+  @apply focus:fixed focus:top-4 focus:left-4 focus:z-50;
+  @apply focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg;
+  @apply focus:shadow-lg;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary,
+  .btn-success {
+    @apply border-2 border-current;
+  }
+
+  .card,
+  .game-card {
+    @apply border-2 border-gray-900;
+  }
+}
+
+/* Focus indicators */
+*:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-[#1cb0f6];
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-[#1cb0f6];
+}
+
+/* Ensure text is readable */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode support if needed */
+}
+
+/* Touch target minimum size */
+button,
+a,
+[role="button"] {
+  @apply min-h-[44px] inline-flex items-center justify-center;
+}

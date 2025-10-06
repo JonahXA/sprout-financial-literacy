@@ -19,12 +19,36 @@ model User {
   enrollments   Enrollment[]
   teachingClasses   Class[]         @relation("TeachingClasses")
   enrolledClasses   ClassStudent[]  @relation("StudentClasses")
+  quizAttempts  QuizAttempt[]
+  resetTokens   PasswordResetToken[]
   totalPoints   Int          @default(0)
   currentStreak Int          @default(0)
   longestStreak Int          @default(0)
-  
+  lastLoginAt   DateTime?
+
+  // Privacy & FERPA Compliance
+  parentEmail   String?
+  dateOfBirth   DateTime?
+  isMinor       Boolean      @default(false)
+  parentalConsent Boolean    @default(false)
+  consentDate   DateTime?
+  dataSharing   DataSharingPreference @default(SCHOOL_ONLY)
+  privacyAgreedAt DateTime?
+
+  // Two-Factor Authentication
+  twoFactorEnabled Boolean   @default(false)
+  twoFactorSecret  String?
+  backupCodes      String[]  @default([])
+
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+}
+
+enum DataSharingPreference {
+  NONE           // No data sharing beyond login
+  SCHOOL_ONLY    // Share with school admins only
+  TEACHERS       // Share with teachers
+  FULL           // Full platform access (leaderboard, etc.)
 }
 
 model School {
@@ -51,7 +75,65 @@ model Course {
   schools       School[]
   enrollments   Enrollment[]
   assignments   Assignment[]
+  lessons       Lesson[]
   createdAt     DateTime     @default(now())
+}
+
+model Lesson {
+  id            String        @id @default(cuid())
+  courseId      String
+  course        Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title         String
+  description   String?
+  order         Int           @default(0)
+  contentType   LessonType    @default(TEXT)
+  content       String        @db.Text
+  videoUrl      String?
+  estimatedMinutes Int        @default(10)
+  xpReward      Int           @default(10)
+
+  quizzes       Quiz[]
+  completions   LessonCompletion[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([courseId, order])
+}
+
+model LessonCompletion {
+  id            String    @id @default(cuid())
+  userId        String
+  lessonId      String
+  lesson        Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  completedAt   DateTime  @default(now())
+  timeSpent     Int       @default(0) // in seconds
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+}
+
+model Quiz {
+  id            String        @id @default(cuid())
+  lessonId      String
+  lesson        Lesson        @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  title         String
+  questions     Json          // Array of question objects
+  passingScore  Int           @default(70)
+
+  attempts      QuizAttempt[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+enum LessonType {
+  TEXT
+  VIDEO
+  INTERACTIVE
+  QUIZ
+  MIXED
 }
 
 model Enrollment {
@@ -62,9 +144,13 @@ model Enrollment {
   course        Course    @relation(fields: [courseId], references: [id])
   progress      Float     @default(0)
   status        String    @default("NOT_STARTED")
+  grade         Float?
+  gradePercent  Float?
+  timeSpent     Int       @default(0) // in minutes
   startedAt     DateTime  @default(now())
   completedAt   DateTime?
-  
+  lastAccessedAt DateTime?
+
   @@unique([userId, courseId])
 }
 
@@ -114,10 +200,46 @@ model Assignment {
   class         Class     @relation(fields: [classId], references: [id])
   courseId      String
   course        Course    @relation(fields: [courseId], references: [id])
-  
+
   title         String
   dueDate       DateTime?
   points        Int       @default(100)
-  
+  allowLateSubmissions Boolean @default(true)
+
   createdAt     DateTime  @default(now())
+}
+
+model QuizAttempt {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  quizId        String?
+  quiz          Quiz?     @relation(fields: [quizId], references: [id], onDelete: SetNull)
+  courseId      String
+  quizTitle     String
+  score         Float
+  maxScore      Float
+  percentage    Float
+  timeSpent     Int       // in seconds
+  answers       Json      // Store question/answer data
+  passed        Boolean   @default(false)
+  attemptNumber Int       @default(1)
+
+  createdAt     DateTime  @default(now())
+
+  @@index([userId, courseId])
+  @@index([quizId])
+}
+
+model PasswordResetToken {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  token         String    @unique
+  expiresAt     DateTime
+  used          Boolean   @default(false)
+
+  createdAt     DateTime  @default(now())
+
+  @@index([token])
 }
