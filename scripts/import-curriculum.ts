@@ -307,7 +307,7 @@ function getCategoryFromModule(moduleId: string): string {
   return categories[moduleId] || 'General'
 }
 
-function getLessonType(formats: string[]): string {
+function getLessonType(formats: string[]): 'TEXT' | 'VIDEO' | 'INTERACTIVE' | 'QUIZ' | 'MIXED' {
   if (formats.includes('scenario') || formats.includes('calculator')) return 'INTERACTIVE'
   if (formats.includes('flashcards')) return 'INTERACTIVE'
   return 'MIXED'
