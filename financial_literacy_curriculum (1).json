@@ -1,0 +1,746 @@
+{
+  "id": "pf-essentials",
+  "title": "Personal Finance Essentials",
+  "gradeRange": "9-12",
+  "topics": [
+    "Mindset",
+    "Income",
+    "Budgeting",
+    "Saving",
+    "Investing",
+    "Banking",
+    "Credit",
+    "Loans",
+    "College",
+    "Taxes",
+    "Insurance",
+    "Consumer Skills",
+    "Planning",
+    "Entrepreneurship"
+  ],
+  "totalEstimatedHours": 11.0,
+  "modules": [
+    {
+      "id": "mod-1-mindset",
+      "title": "Financial Decision-Making & Mindset",
+      "objective": "Build a healthy money mindset and a repeatable decision process.",
+      "outcomes": [
+        "Explain opportunity cost and tradeoffs",
+        "Apply a 5-step decision model to money choices",
+        "Identify cognitive/marketing biases that affect spending"
+      ],
+      "lessons": [
+        {
+          "id": "m1-l1-decisions",
+          "title": "How Money Decisions Happen",
+          "estMinutes": 10,
+          "formats": [
+            "interactive-cards",
+            "mcq",
+            "tf"
+          ],
+          "skills": [
+            "opportunity-cost",
+            "tradeoffs"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m1-l2-biases",
+          "title": "Ads, Biases, and FOMO",
+          "estMinutes": 8,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "bias-detection",
+            "ad-literacy"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-2-income",
+      "title": "Earning Money & Income Sources",
+      "objective": "Understand how people earn money and how careers impact income.",
+      "outcomes": [
+        "Differentiate active vs passive income",
+        "Relate education/skills to lifetime earnings",
+        "Identify side-hustle and entrepreneurship options"
+      ],
+      "lessons": [
+        {
+          "id": "m2-l1-income-types",
+          "title": "Active vs Passive Income",
+          "estMinutes": 9,
+          "formats": [
+            "mcq",
+            "flashcards"
+          ],
+          "skills": [
+            "income-types"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m2-l2-careers",
+          "title": "Careers, Pay, and Benefits",
+          "estMinutes": 10,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "compensation",
+            "benefits"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-3-budgeting",
+      "title": "Budgeting & Money Management",
+      "objective": "Create a simple budget and separate needs from wants.",
+      "outcomes": [
+        "Classify needs vs wants",
+        "Build a monthly budget from net pay",
+        "Adjust a budget to hit a savings goal"
+      ],
+      "lessons": [
+        {
+          "id": "m3-l1-needs-wants",
+          "title": "Needs vs Wants",
+          "estMinutes": 9,
+          "formats": [
+            "mcq",
+            "tf",
+            "drag-drop"
+          ],
+          "skills": [
+            "categorization"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m3-l2-first-budget",
+          "title": "Build Your First Budget",
+          "estMinutes": 11,
+          "formats": [
+            "scenario",
+            "mcq",
+            "calculator"
+          ],
+          "skills": [
+            "budget-allocation",
+            "goal-setting"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-4-saving",
+      "title": "Saving & Emergency Funds",
+      "objective": "Start a pay-yourself-first habit and build an emergency fund.",
+      "outcomes": [
+        "Explain why to save before spending",
+        "Plan a 3\u20136 month emergency fund",
+        "Calculate simple compound growth"
+      ],
+      "lessons": [
+        {
+          "id": "m4-l1-pay-yourself-first",
+          "title": "Pay Yourself First",
+          "estMinutes": 8,
+          "formats": [
+            "tf",
+            "mcq",
+            "habit-tracker"
+          ],
+          "skills": [
+            "automation",
+            "habit"
+          ],
+          "assessment": {
+            "mcq": 2,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m4-l2-compound-interest",
+          "title": "Compound Interest Basics",
+          "estMinutes": 10,
+          "formats": [
+            "mcq",
+            "scenario",
+            "calculator"
+          ],
+          "skills": [
+            "compounding"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-5-investing",
+      "title": "Investing Basics",
+      "objective": "Differentiate savings vs investing and understand risk & diversification.",
+      "outcomes": [
+        "Define stocks, bonds, funds",
+        "Explain risk vs reward and diversification",
+        "Recognize why starting early matters"
+      ],
+      "lessons": [
+        {
+          "id": "m5-l1-vehicles",
+          "title": "Stocks, Bonds, and Funds",
+          "estMinutes": 12,
+          "formats": [
+            "mcq",
+            "flashcards"
+          ],
+          "skills": [
+            "asset-types"
+          ],
+          "assessment": {
+            "mcq": 5,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m5-l2-risk-time",
+          "title": "Risk, Diversification, and Time",
+          "estMinutes": 10,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "risk",
+            "diversification",
+            "time-horizon"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-6-banking",
+      "title": "Banking & Financial Services",
+      "objective": "Use bank/credit union accounts and avoid common fees.",
+      "outcomes": [
+        "Compare checking vs savings vs CD",
+        "Explain FDIC/NCUA insurance",
+        "Identify and avoid common fees"
+      ],
+      "lessons": [
+        {
+          "id": "m6-l1-accounts",
+          "title": "Checking, Savings, and CDs",
+          "estMinutes": 10,
+          "formats": [
+            "mcq",
+            "tf",
+            "statement-read"
+          ],
+          "skills": [
+            "account-usage"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m6-l2-fees-digital",
+          "title": "ATM, Overdrafts, and Digital Payments",
+          "estMinutes": 9,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "fee-avoidance",
+            "app-safety"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-7-credit",
+      "title": "Credit & Credit Scores",
+      "objective": "Use credit responsibly and build a strong score.",
+      "outcomes": [
+        "Define credit and common products",
+        "List score factors (payment history, utilization, etc.)",
+        "Interpret a credit report at a high level"
+      ],
+      "lessons": [
+        {
+          "id": "m7-l1-what-is-credit",
+          "title": "What is Credit?",
+          "estMinutes": 9,
+          "formats": [
+            "mcq",
+            "tf"
+          ],
+          "skills": [
+            "credit-basics"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m7-l2-score-factors",
+          "title": "Score Factors & Habits",
+          "estMinutes": 10,
+          "formats": [
+            "mcq",
+            "scenario"
+          ],
+          "skills": [
+            "payment-history",
+            "utilization"
+          ],
+          "assessment": {
+            "mcq": 5,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-8-credit-cards",
+      "title": "Credit Cards & Smart Borrowing",
+      "objective": "Operate credit cards safely; understand APR, fees, and statements.",
+      "outcomes": [
+        "Read a card statement and calculate interest effects",
+        "Explain APR, grace period, minimum payment",
+        "Compare card offers and choose responsibly"
+      ],
+      "lessons": [
+        {
+          "id": "m8-l1-card-mechanics",
+          "title": "APR, Grace Periods, Minimums",
+          "estMinutes": 11,
+          "formats": [
+            "mcq",
+            "tf",
+            "calculator"
+          ],
+          "skills": [
+            "statement-reading",
+            "interest-costs"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m8-l2-compare-cards",
+          "title": "Comparing Offers & Avoiding Traps",
+          "estMinutes": 9,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "offer-comparison",
+            "fee-awareness"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-9-loans",
+      "title": "Loans & Debt Management",
+      "objective": "Understand loan types, total cost, and healthy repayment strategies.",
+      "outcomes": [
+        "Differentiate secured vs unsecured loans",
+        "Compute total cost of a loan",
+        "Apply strategies to repay faster and avoid default"
+      ],
+      "lessons": [
+        {
+          "id": "m9-l1-loan-basics",
+          "title": "Principal, Interest, and Terms",
+          "estMinutes": 11,
+          "formats": [
+            "mcq",
+            "calculator"
+          ],
+          "skills": [
+            "loan-math"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m9-l2-debt-strategy",
+          "title": "Repayment Plans & Pitfalls",
+          "estMinutes": 9,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "snowball-avalanche",
+            "default-risks"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-10-college",
+      "title": "College & Education Financing",
+      "objective": "Plan affordable education using aid, scholarships, and smart choices.",
+      "outcomes": [
+        "Break down cost of attendance",
+        "Compare grants, scholarships, work-study, loans",
+        "Estimate post-grad repayment implications"
+      ],
+      "lessons": [
+        {
+          "id": "m10-l1-aid-basics",
+          "title": "Grants, Scholarships, Work-Study, Loans",
+          "estMinutes": 12,
+          "formats": [
+            "mcq",
+            "tf"
+          ],
+          "skills": [
+            "aid-comparison"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m10-l2-offer-compare",
+          "title": "Comparing Aid Offers & ROI",
+          "estMinutes": 10,
+          "formats": [
+            "scenario",
+            "mcq",
+            "calculator"
+          ],
+          "skills": [
+            "offer-evaluation",
+            "roi"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-11-taxes",
+      "title": "Understanding Taxes & Paychecks",
+      "objective": "Read a pay stub and grasp the basics of filing a simple return.",
+      "outcomes": [
+        "Differentiate gross vs net pay",
+        "Identify FICA and withholding",
+        "Understand the purpose of filing and refunds/balances due"
+      ],
+      "lessons": [
+        {
+          "id": "m11-l1-paystub",
+          "title": "Reading Your Paycheck",
+          "estMinutes": 10,
+          "formats": [
+            "statement-read",
+            "mcq",
+            "tf"
+          ],
+          "skills": [
+            "withholding",
+            "fica"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m11-l2-file-basics",
+          "title": "Intro to Filing Taxes",
+          "estMinutes": 9,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "filing-basics"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-12-insurance",
+      "title": "Insurance & Risk Management",
+      "objective": "Use insurance and planning to protect from financial shocks.",
+      "outcomes": [
+        "Explain premiums, deductibles, and coverage",
+        "Differentiate auto, health, renters, life (basic)",
+        "Plan to mitigate risks beyond insurance"
+      ],
+      "lessons": [
+        {
+          "id": "m12-l1-types",
+          "title": "Health, Auto, Renters, Life",
+          "estMinutes": 10,
+          "formats": [
+            "mcq",
+            "tf"
+          ],
+          "skills": [
+            "coverage-basics"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m12-l2-risk",
+          "title": "Premiums, Deductibles & Risk Tradeoffs",
+          "estMinutes": 9,
+          "formats": [
+            "scenario",
+            "mcq",
+            "calculator"
+          ],
+          "skills": [
+            "risk-tradeoff"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-13-consumer",
+      "title": "Smart Consumer Skills & Fraud Protection",
+      "objective": "Shop smart, know your rights, and protect identity.",
+      "outcomes": [
+        "Compare products and warranties",
+        "Spot scams and phishing",
+        "List steps after suspected identity theft"
+      ],
+      "lessons": [
+        {
+          "id": "m13-l1-smart-shopper",
+          "title": "Comparison Shopping & Consumer Rights",
+          "estMinutes": 10,
+          "formats": [
+            "scenario",
+            "mcq"
+          ],
+          "skills": [
+            "comparison",
+            "warranties"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 1
+          }
+        },
+        {
+          "id": "m13-l2-fraud",
+          "title": "Fraud & Identity Theft Defense",
+          "estMinutes": 10,
+          "formats": [
+            "mcq",
+            "tf",
+            "spot-the-scam"
+          ],
+          "skills": [
+            "security-hygiene"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-14-planning",
+      "title": "Financial Planning & Future Goals",
+      "objective": "Create a simple financial plan with SMART goals and retirement basics.",
+      "outcomes": [
+        "Write SMART goals",
+        "Draft a mini financial plan",
+        "Explain 401(k)/IRA at a high level"
+      ],
+      "lessons": [
+        {
+          "id": "m14-l1-smart-goals",
+          "title": "SMART Goals & Priority Setting",
+          "estMinutes": 9,
+          "formats": [
+            "mcq",
+            "goal-builder"
+          ],
+          "skills": [
+            "smart-goals"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 1,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m14-l2-retirement",
+          "title": "Long-Term Planning & Retirement Basics",
+          "estMinutes": 11,
+          "formats": [
+            "mcq",
+            "scenario"
+          ],
+          "skills": [
+            "retirement-accounts",
+            "compounding-long"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mod-15-entrepreneurship",
+      "title": "Entrepreneurship Basics (Bonus)",
+      "objective": "Understand simple business planning and cash flow.",
+      "outcomes": [
+        "Outline a simple business plan",
+        "Estimate startup costs & pricing",
+        "Recognize basic taxes/compliance for small biz"
+      ],
+      "lessons": [
+        {
+          "id": "m15-l1-business-plan",
+          "title": "From Idea to Plan",
+          "estMinutes": 12,
+          "formats": [
+            "mcq",
+            "canvas-builder",
+            "tf"
+          ],
+          "skills": [
+            "business-model",
+            "market-fit"
+          ],
+          "assessment": {
+            "mcq": 4,
+            "tf": 2,
+            "scenario": 0
+          }
+        },
+        {
+          "id": "m15-l2-cashflow",
+          "title": "Cash Flow & Getting Started",
+          "estMinutes": 10,
+          "formats": [
+            "scenario",
+            "mcq",
+            "calculator"
+          ],
+          "skills": [
+            "pricing",
+            "costs",
+            "cashflow"
+          ],
+          "assessment": {
+            "mcq": 3,
+            "tf": 0,
+            "scenario": 1
+          }
+        }
+      ]
+    }
+  ]
+}
