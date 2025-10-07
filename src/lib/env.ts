@@ -46,12 +46,9 @@ export function validateEnv(): EnvConfig {
 
   // Production-specific requirements
   if (process.env.NODE_ENV === 'production') {
-    if (!process.env.RESEND_API_KEY) {
-      errors.push('RESEND_API_KEY is required in production')
-    }
-
-    if (!process.env.RESEND_FROM_EMAIL) {
-      errors.push('RESEND_FROM_EMAIL is required in production')
+    // Email is optional - will use console logging if not configured
+    if (process.env.RESEND_API_KEY && !process.env.RESEND_FROM_EMAIL) {
+      errors.push('RESEND_FROM_EMAIL is required when RESEND_API_KEY is set')
     }
 
     if (process.env.JWT_SECRET === 'your-super-secret-jwt-key-change-this-in-production') {
