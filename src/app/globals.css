@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-navy: #0a1628;
+  --primary-light: #162844;
+  --primary-dark: #050d1a;
+  --accent-green: #58cc02;
+  --accent-gold: #ffc800;
+  --accent-red: #ff4b4b;
+  --accent-blue: #1cb0f6;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #0a1628 0%, #1a3a6a 100%);
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%);
+}
+
+.card {
+  @apply bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-[#0a1628] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#162844] transform hover:scale-105 transition-all duration-200 shadow-lg;
+}
+
+.btn-success {
+  @apply bg-[#58cc02] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#4caf00] transform hover:scale-105 transition-all duration-200 shadow-lg;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-[#1cb0f6] transition-all duration-200;
+}
+
+/* XP Progress Bar Animation */
+@keyframes fillProgress {
+  from { width: 0%; }
+}
+
+.progress-fill {
+  animation: fillProgress 1s ease-out forwards;
+}
+
+/* Streak Fire Animation */
+@keyframes flicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.streak-flame {
+  animation: flicker 1.5s ease-in-out infinite;
+}
+
+/* Achievement Badge Pop */
+@keyframes badgePop {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.badge-pop {
+  animation: badgePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Combo Counter */
+.combo-counter {
+  @apply text-6xl font-bold bg-gradient-to-r from-[#ffc800] to-[#ff9500] bg-clip-text text-transparent;
+}
+
+/* Level Up Effect */
+@keyframes levelUp {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(88, 204, 2, 0.7); }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(88, 204, 2, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(88, 204, 2, 0); }
+}
+
+.level-up {
+  animation: levelUp 1s ease-out;
+}
+
+/* Gamification Cards */
+.game-card {
+  @apply bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 border-2 border-gray-100;
+}
+
+.xp-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-[#ffc800] to-[#ff9500] text-white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Mobile Responsiveness Enhancements */
+
+/* Touch-friendly tap targets (minimum 44x44px) */
+@layer utilities {
+  .tap-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+}
+
+/* Mobile-optimized buttons */
+@media (max-width: 640px) {
+  .btn-primary, .btn-success {
+    @apply px-4 py-2.5 text-sm;
+  }
+
+  .card, .game-card {
+    @apply p-4;
+  }
+
+  .input-field {
+    @apply text-base; /* Prevents zoom on iOS */
+  }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Mobile-friendly tables */
+.table-responsive {
+  @apply overflow-x-auto -mx-4 px-4;
+}
+
+@media (max-width: 640px) {
+  .table-responsive table {
+    @apply text-sm;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    @apply px-2 py-2;
+  }
+}
+
+/* Mobile navigation */
+.mobile-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 p-2 z-40;
+}
+
+/* Improved touch scrolling */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Mobile-optimized modals */
+@media (max-width: 640px) {
+  .modal-content {
+    @apply max-h-[90vh] overflow-y-auto;
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .game-card {
+    @apply p-3;
+  }
+
+  h1 {
+    @apply text-xl;
+  }
+
+  h2 {
+    @apply text-lg;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.focus-visible:focus {
+  @apply outline-none ring-2 ring-[#1cb0f6] ring-offset-2;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Skip to content link */
+.skip-link {
+  @apply sr-only focusable;
+  @apply focus:fixed focus:top-4 focus:left-4 focus:z-50;
+  @apply focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg;
+  @apply focus:shadow-lg;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary,
+  .btn-success {
+    @apply border-2 border-current;
+  }
+
+  .card,
+  .game-card {
+    @apply border-2 border-gray-900;
+  }
+}
+
+/* Focus indicators */
+*:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-[#1cb0f6];
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-offset-2 ring-[#1cb0f6];
+}
+
+/* Ensure text is readable */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode support if needed */
+}
+
+/* Touch target minimum size */
+button,
+a,
+[role="button"] {
+  @apply min-h-[44px] inline-flex items-center justify-center;
+}
