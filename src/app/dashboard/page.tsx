@@ -476,8 +476,8 @@ export default function Dashboard() {
                           </div>
                         )}
                         <button
-                          onClick={() => completeLesson(enrollment.courseId)}
-                          disabled={isCompleted || completingLesson === enrollment.courseId}
+                          onClick={() => router.push(`/dashboard/courses/${enrollment.courseId}`)}
+                          disabled={isCompleted}
                           className={`w-full mt-3 py-2 text-sm flex items-center justify-center gap-2 ${
                             isCompleted
                               ? 'btn-primary bg-gray-400 cursor-not-allowed'
@@ -486,14 +486,7 @@ export default function Dashboard() {
                               : 'btn-primary'
                           }`}
                         >
-                          {completingLesson === enrollment.courseId ? (
-                            <>
-                              <LoadingSpinner size="sm" />
-                              <span>Processing...</span>
-                            </>
-                          ) : (
-                            <span>{isCompleted ? '✓ Completed' : isInProgress ? 'Continue Lesson (+10 XP)' : 'Start Course (+10 XP)'}</span>
-                          )}
+                          <span>{isCompleted ? '✓ Completed' : isInProgress ? 'Continue Learning →' : 'Start Learning →'}</span>
                         </button>
                       </div>
                     )

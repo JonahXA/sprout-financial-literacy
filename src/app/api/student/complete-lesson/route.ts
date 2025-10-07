@@ -22,10 +22,24 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { courseId, progressIncrement = 10 } = await request.json()
+    const { courseId, lessonId, progressIncrement = 10 } = await request.json()
 
     if (!courseId) {
       return NextResponse.json({ error: 'Course ID required' }, { status: 400 })
+    }
+
+    // Check if lesson was already completed (to prevent double XP)
+    let alreadyCompleted = false
+    if (lessonId) {
+      const existingCompletion = await prisma.lessonCompletion.findUnique({
+        where: {
+          userId_lessonId: {
+            userId: user.id,
+            lessonId: lessonId
+          }
+        }
+      })
+      alreadyCompleted = !!existingCompletion
     }
 
     // Find or create enrollment
@@ -51,7 +65,8 @@ export async function POST(request: Request) {
     const isNowCompleted = newProgress >= 100
 
     // Calculate XP reward (base 10 XP per lesson, bonus 50 XP for course completion)
-    const lessonXP = 10
+    // Don't give XP if lesson was already completed
+    const lessonXP = alreadyCompleted ? 0 : 10
     const completionBonus = isNowCompleted && !wasCompleted ? 50 : 0
     const totalXP = lessonXP + completionBonus
 
@@ -74,8 +89,8 @@ export async function POST(request: Request) {
       newStreak = isConsecutiveDay ? user.currentStreak + 1 : 1
     }
 
-    // Update enrollment and user in a transaction
-    const [updatedEnrollment, updatedUser] = await prisma.$transaction([
+    // Build transaction operations
+    const operations: any[] = [
       prisma.enrollment.update({
         where: {
           userId_courseId: {
@@ -100,7 +115,22 @@ export async function POST(request: Request) {
           longestStreak: Math.max(user.longestStreak, newStreak)
         }
       })
-    ])
+    ]
+
+    // Create lesson completion record if provided and not already completed
+    if (lessonId && !alreadyCompleted) {
+      operations.push(
+        prisma.lessonCompletion.create({
+          data: {
+            userId: user.id,
+            lessonId: lessonId
+          }
+        })
+      )
+    }
+
+    // Update enrollment and user in a transaction
+    const [updatedEnrollment, updatedUser] = await prisma.$transaction(operations)
 
     return NextResponse.json({
       enrollment: updatedEnrollment,
