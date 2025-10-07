@@ -19,13 +19,15 @@ export default function Login() {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
+        credentials: 'include'
       })
 
       const data = await res.json()
 
       if (res.ok) {
-        router.push('/dashboard')
+        // Force a hard refresh to ensure middleware picks up the cookie
+        window.location.href = '/dashboard'
       } else {
         setError(data.error || 'Invalid email or password')
       }

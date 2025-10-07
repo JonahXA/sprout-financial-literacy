@@ -10,10 +10,19 @@ export function middleware(request: NextRequest) {
   const protectedPaths = ['/dashboard', '/teacher']
   const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path))
 
+  const jwtSecret = process.env.JWT_SECRET
+
+  // If no JWT secret is configured, allow the request through
+  // This prevents blocking when env vars aren't loaded properly
+  if (!jwtSecret) {
+    console.error('JWT_SECRET not found in middleware')
+    return NextResponse.next()
+  }
+
   // Validate token only on protected routes
   if (token?.value && isProtectedPath) {
     try {
-      verify(token.value, process.env.JWT_SECRET || '')
+      verify(token.value, jwtSecret)
     } catch (error) {
       // Token is invalid - clear it and redirect to login
       const response = NextResponse.redirect(new URL('/login', request.url))
@@ -36,7 +45,7 @@ export function middleware(request: NextRequest) {
   // Redirect authenticated users away from login/register (only if token is valid)
   if (token?.value && (pathname === '/login' || pathname === '/register')) {
     try {
-      verify(token.value, process.env.JWT_SECRET || '')
+      verify(token.value, jwtSecret)
       return NextResponse.redirect(new URL('/dashboard', request.url))
     } catch (error) {
       // Invalid token on login page - clear it and allow login

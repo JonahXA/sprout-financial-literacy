@@ -49,7 +49,8 @@ export default function Register() {
         body: JSON.stringify({
           ...formData,
           schoolId: school.id
-        })
+        }),
+        credentials: 'include'
       })
 
       const data = await res.json()
@@ -61,11 +62,13 @@ export default function Register() {
           body: JSON.stringify({
             email: formData.email,
             password: formData.password
-          })
+          }),
+          credentials: 'include'
         })
 
         if (loginRes.ok) {
-          router.push('/dashboard')
+          // Force a hard refresh to ensure middleware picks up the cookie
+          window.location.href = '/dashboard'
         }
       } else {
         setError(data.error || 'Registration failed')
