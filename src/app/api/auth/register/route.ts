@@ -3,10 +3,22 @@ import { prisma } from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
 import jwt from 'jsonwebtoken'
+import { registerSchema, formatZodErrors } from '@/lib/validation'
 
 export async function POST(request: Request) {
   try {
-    const { email, password, firstName, lastName, role, schoolId } = await request.json()
+    const body = await request.json()
+
+    // Validate input
+    const validation = registerSchema.safeParse(body)
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: 'Invalid input', fields: formatZodErrors(validation.error) },
+        { status: 400 }
+      )
+    }
+
+    const { email, password, firstName, lastName, role, schoolId } = validation.data
 
     const existingUser = await prisma.user.findUnique({
       where: { email }
@@ -33,7 +45,7 @@ export async function POST(request: Request) {
     })
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET!,
       { expiresIn: '7d' }
     )

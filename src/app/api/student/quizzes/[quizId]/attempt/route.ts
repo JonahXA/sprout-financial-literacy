@@ -1,25 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { verify } from 'jsonwebtoken'
 import { prisma } from '@/lib/prisma'
+import { requireAuth } from '@/lib/auth'
+import { submitQuizSchema, formatZodErrors } from '@/lib/validation'
+import { checkRateLimit, getClientId, RateLimits } from '@/lib/rate-limit'
 
 export async function POST(
   request: NextRequest,
   { params }: { params: { quizId: string } }
 ) {
   try {
-    const token = request.cookies.get('token')?.value
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    // Authenticate and authorize
+    const { user } = await requireAuth(request, ['STUDENT'])
+
+    // Rate limiting - prevent quiz spam
+    const clientId = getClientId(request, user.id)
+    const rateLimit = checkRateLimit(clientId, RateLimits.QUIZ)
+
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: 'Too many quiz submissions. Please slow down.' },
+        { status: 429 }
+      )
     }
 
-    const decoded = verify(token, process.env.JWT_SECRET!) as { userId: string; role: string }
-
-    if (decoded.role !== 'STUDENT') {
-      return NextResponse.json({ error: 'Forbidden - Students only' }, { status: 403 })
-    }
-
+    // Validate input
     const body = await request.json()
-    const { answers, timeSpent } = body
+    const validation = submitQuizSchema.safeParse(body)
+
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: 'Invalid input', fields: formatZodErrors(validation.error) },
+        { status: 400 }
+      )
+    }
+
+    const { answers, timeSpent } = validation.data
 
     // Get quiz with lesson info
     const quiz = await prisma.quiz.findUnique({
@@ -66,16 +81,30 @@ export async function POST(
     // Count previous attempts
     const attemptCount = await prisma.quizAttempt.count({
       where: {
-        userId: decoded.userId,
+        userId: user.id,
         quizId: params.quizId
       }
     })
 
-    // Save quiz attempt
+    // Save quiz attempt with transaction and race condition protection
     const quizAttempt = await prisma.$transaction(async (tx) => {
+      // Check for duplicate submission in last 5 seconds (race condition protection)
+      const recentAttempt = await tx.quizAttempt.findFirst({
+        where: {
+          userId: user.id,
+          quizId: params.quizId,
+          createdAt: {
+            gte: new Date(Date.now() - 5000) // Last 5 seconds
+          }
+        }
+      })
+
+      if (recentAttempt) {
+        throw new Error('Duplicate submission detected. Please wait before submitting again.')
+      }
       const attempt = await tx.quizAttempt.create({
         data: {
-          userId: decoded.userId,
+          userId: user.id,
           quizId: params.quizId,
           courseId: quiz.lesson.courseId,
           quizTitle: quiz.title,
@@ -89,10 +118,10 @@ export async function POST(
         }
       })
 
-      // If passed and first time passing, award XP
+      // If passed and first time passing, award XP (with additional check)
       const previousPassedAttempt = await tx.quizAttempt.findFirst({
         where: {
-          userId: decoded.userId,
+          userId: user.id,
           quizId: params.quizId,
           passed: true,
           id: { not: attempt.id }
@@ -101,20 +130,35 @@ export async function POST(
 
       let xpAwarded = 0
       if (passed && !previousPassedAttempt) {
-        // Award bonus XP for passing quiz (30 XP)
-        await tx.user.update({
-          where: { id: decoded.userId },
-          data: {
-            totalPoints: { increment: 30 }
+        // Double-check no XP was awarded in a concurrent request
+        const xpCheck = await tx.quizAttempt.findFirst({
+          where: {
+            userId: user.id,
+            quizId: params.quizId,
+            passed: true,
+            createdAt: {
+              gte: new Date(Date.now() - 10000) // Last 10 seconds
+            },
+            id: { not: attempt.id }
           }
         })
-        xpAwarded = 30
+
+        if (!xpCheck) {
+          // Award bonus XP for passing quiz (30 XP)
+          await tx.user.update({
+            where: { id: user.id },
+            data: {
+              totalPoints: { increment: 30 }
+            }
+          })
+          xpAwarded = 30
+        }
       }
 
       // Update enrollment grade if this is the best attempt
       const enrollment = await tx.enrollment.findFirst({
         where: {
-          userId: decoded.userId,
+          userId: user.id,
           courseId: quiz.lesson.courseId
         }
       })
@@ -123,7 +167,7 @@ export async function POST(
         // Calculate average quiz grade for this course
         const allAttempts = await tx.quizAttempt.findMany({
           where: {
-            userId: decoded.userId,
+            userId: user.id,
             courseId: quiz.lesson.courseId,
             passed: true
           },
@@ -137,7 +181,7 @@ export async function POST(
           const avgGrade = allAttempts.reduce((sum, a) => sum + a.percentage, 0) / allAttempts.length
           await tx.enrollment.updateMany({
             where: {
-              userId: decoded.userId,
+              userId: user.id,
               courseId: quiz.lesson.courseId
             },
             data: {
@@ -149,6 +193,9 @@ export async function POST(
       }
 
       return { ...attempt, xpAwarded }
+    }, {
+      timeout: 10000, // 10 second timeout
+      isolationLevel: 'Serializable' // Highest isolation level to prevent race conditions
     })
 
     return NextResponse.json({

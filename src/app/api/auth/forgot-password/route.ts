@@ -2,9 +2,22 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { sendEmail } from '@/lib/email'
 import crypto from 'crypto'
+import { checkRateLimit, getClientId, RateLimits } from '@/lib/rate-limit'
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting - 3 attempts per hour per IP
+    const clientId = getClientId(request)
+    const rateLimit = checkRateLimit(clientId, RateLimits.PASSWORD_RESET)
+
+    if (!rateLimit.success) {
+      const resetIn = Math.ceil((rateLimit.reset - Date.now()) / 1000 / 60)
+      return NextResponse.json(
+        { error: `Too many password reset attempts. Please try again in ${resetIn} minutes.` },
+        { status: 429 }
+      )
+    }
+
     const { email } = await request.json()
 
     if (!email) {
