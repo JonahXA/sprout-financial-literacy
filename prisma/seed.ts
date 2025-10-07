@@ -465,6 +465,316 @@ Budgeting is personal. What works for others might not work for you. Experiment,
     })
 
     console.log('✅ Created sample lessons for Personal Budgeting Basics')
+
+    // Add quizzes for each lesson
+    const lessons = await prisma.lesson.findMany({
+      where: { courseId: budgetingCourse.id },
+      orderBy: { order: 'asc' }
+    })
+
+    if (lessons.length > 0) {
+      // Quiz for Lesson 1: What is a Budget?
+      await prisma.quiz.create({
+        data: {
+          lessonId: lessons[0].id,
+          title: 'Budget Basics Check',
+          passingScore: 70,
+          questions: [
+            {
+              id: 1,
+              question: 'What is the golden rule of budgeting?',
+              type: 'multiple-choice',
+              options: [
+                'Always use cash',
+                'Spend less than you earn',
+                'Never eat out',
+                'Only buy things on sale'
+              ],
+              correctAnswer: 1,
+              explanation: 'The golden rule is to spend less than you earn. This is the foundation of financial success!',
+              points: 10
+            },
+            {
+              id: 2,
+              question: 'Which of these is an example of income?',
+              type: 'multiple-choice',
+              options: [
+                'Buying groceries',
+                'Paying rent',
+                'Your salary',
+                'Utility bills'
+              ],
+              correctAnswer: 2,
+              explanation: 'Your salary is income - money coming in. The others are expenses - money going out.',
+              points: 10
+            },
+            {
+              id: 3,
+              question: 'A budget helps you...',
+              type: 'multiple-choice',
+              options: [
+                'Avoid fun activities',
+                'Make intentional choices with money',
+                'Never spend money',
+                'Become rich overnight'
+              ],
+              correctAnswer: 1,
+              explanation: 'A budget is about making intentional choices, not restricting yourself completely!',
+              points: 10
+            }
+          ]
+        }
+      })
+
+      // Quiz for Lesson 2: The 50/30/20 Rule
+      await prisma.quiz.create({
+        data: {
+          lessonId: lessons[1].id,
+          title: 'Master the 50/30/20 Rule',
+          passingScore: 70,
+          questions: [
+            {
+              id: 1,
+              question: 'In the 50/30/20 rule, what percentage goes to needs?',
+              type: 'multiple-choice',
+              options: ['20%', '30%', '50%', '70%'],
+              correctAnswer: 2,
+              explanation: '50% of your income should go to essential needs like rent, utilities, and groceries.',
+              points: 10
+            },
+            {
+              id: 2,
+              question: 'Which of these is a "want" not a "need"?',
+              type: 'multiple-choice',
+              options: [
+                'Rent payment',
+                'Groceries',
+                'Netflix subscription',
+                'Electric bill'
+              ],
+              correctAnswer: 2,
+              explanation: 'Netflix is entertainment - a want. Rent, groceries, and utilities are needs.',
+              points: 10
+            },
+            {
+              id: 3,
+              question: 'If you earn $3,000/month after taxes, how much should go to savings using the 50/30/20 rule?',
+              type: 'multiple-choice',
+              options: ['$300', '$600', '$900', '$1,500'],
+              correctAnswer: 1,
+              explanation: '20% of $3,000 = $600. This goes to savings and debt payoff.',
+              points: 10
+            },
+            {
+              id: 4,
+              question: 'True or False: The 50/30/20 rule is flexible and can be adjusted to fit your situation.',
+              type: 'true-false',
+              options: ['True', 'False'],
+              correctAnswer: 0,
+              explanation: 'True! The 50/30/20 rule is a guideline. Adjust it based on your circumstances.',
+              points: 10
+            }
+          ]
+        }
+      })
+
+      // Quiz for Lesson 3: Tracking Your Expenses
+      await prisma.quiz.create({
+        data: {
+          lessonId: lessons[2].id,
+          title: 'Expense Tracking Challenge',
+          passingScore: 70,
+          questions: [
+            {
+              id: 1,
+              question: 'Which expense tracking method is automatic and free?',
+              type: 'multiple-choice',
+              options: [
+                'Pen and paper',
+                'Apps like Mint',
+                'Excel spreadsheet',
+                'Mental math'
+              ],
+              correctAnswer: 1,
+              explanation: 'Apps like Mint automatically track your spending by connecting to your bank account.',
+              points: 10
+            },
+            {
+              id: 2,
+              question: 'How often should you update your expense tracker?',
+              type: 'multiple-choice',
+              options: ['Once a year', 'Once a month', 'Once a week', 'Daily'],
+              correctAnswer: 3,
+              explanation: 'Tracking daily gives you the most accurate picture of your spending habits.',
+              points: 10
+            },
+            {
+              id: 3,
+              question: 'Which is a fixed expense?',
+              type: 'multiple-choice',
+              options: [
+                'Groceries',
+                'Dining out',
+                'Rent',
+                'Entertainment'
+              ],
+              correctAnswer: 2,
+              explanation: 'Rent is fixed - it stays the same each month. The others vary.',
+              points: 10
+            },
+            {
+              id: 4,
+              question: 'Why is tracking expenses important?',
+              type: 'multiple-choice',
+              options: [
+                'To feel guilty about purchases',
+                'To see where money actually goes',
+                'To impress friends',
+                'To avoid having fun'
+              ],
+              correctAnswer: 1,
+              explanation: 'Tracking gives you awareness of your spending patterns so you can make better decisions.',
+              points: 10
+            }
+          ]
+        }
+      })
+
+      // Quiz for Lesson 4: Creating Your First Budget
+      await prisma.quiz.create({
+        data: {
+          lessonId: lessons[3].id,
+          title: 'Budget Creation Challenge',
+          passingScore: 70,
+          questions: [
+            {
+              id: 1,
+              question: 'Sarah earns $2,000/month, spends $1,800, and saves $200. Is her budget balanced?',
+              type: 'multiple-choice',
+              options: [
+                'Yes, perfectly balanced',
+                'No, she\'s overspending',
+                'No, she needs to save more',
+                'Cannot determine'
+              ],
+              correctAnswer: 0,
+              explanation: 'Yes! Income ($2,000) = Expenses ($1,800) + Savings ($200). She\'s spending less than she earns.',
+              points: 10
+            },
+            {
+              id: 2,
+              question: 'What should you do first when creating a budget?',
+              type: 'multiple-choice',
+              options: [
+                'Cut all entertainment',
+                'Calculate your income',
+                'Delete your credit cards',
+                'Buy a budgeting book'
+              ],
+              correctAnswer: 1,
+              explanation: 'Always start with your income - you need to know how much money you have coming in.',
+              points: 10
+            },
+            {
+              id: 3,
+              question: 'If your expenses exceed your income, you should...',
+              type: 'multiple-choice',
+              options: [
+                'Ignore it',
+                'Use credit cards',
+                'Increase income or reduce expenses',
+                'Stop budgeting'
+              ],
+              correctAnswer: 2,
+              explanation: 'When expenses exceed income, you need to either earn more or spend less to balance your budget.',
+              points: 10
+            },
+            {
+              id: 4,
+              question: 'Your first budget will likely be...',
+              type: 'multiple-choice',
+              options: [
+                'Perfect and never need changes',
+                'Wrong and need adjustments',
+                'Too complicated to use',
+                'Exactly like everyone else\'s'
+              ],
+              correctAnswer: 1,
+              explanation: 'Your first budget is a starting point! Track actual spending and adjust as needed.',
+              points: 10
+            }
+          ]
+        }
+      })
+
+      // Quiz for Lesson 5: Common Budgeting Mistakes
+      await prisma.quiz.create({
+        data: {
+          lessonId: lessons[4].id,
+          title: 'Avoid These Mistakes!',
+          passingScore: 70,
+          questions: [
+            {
+              id: 1,
+              question: 'Spending $4 on coffee daily equals how much per month (30 days)?',
+              type: 'multiple-choice',
+              options: ['$40', '$80', '$120', '$160'],
+              correctAnswer: 2,
+              explanation: '$4 × 30 days = $120/month. Small daily expenses add up quickly!',
+              points: 10
+            },
+            {
+              id: 2,
+              question: 'What should you do if you fail to stick to your budget one month?',
+              type: 'multiple-choice',
+              options: [
+                'Give up budgeting',
+                'Feel guilty forever',
+                'Adjust and try again',
+                'Never have fun again'
+              ],
+              correctAnswer: 2,
+              explanation: 'One bad month doesn\'t mean failure. Learn from it, adjust, and keep going!',
+              points: 10
+            },
+            {
+              id: 3,
+              question: 'How should you handle irregular expenses like annual insurance?',
+              type: 'multiple-choice',
+              options: [
+                'Ignore them until they happen',
+                'Divide yearly cost by 12 and budget monthly',
+                'Use emergency fund',
+                'Put on credit card'
+              ],
+              correctAnswer: 1,
+              explanation: 'Plan ahead! Divide annual costs by 12 and save monthly so you\'re ready when the bill comes.',
+              points: 10
+            },
+            {
+              id: 4,
+              question: 'A good emergency fund to start with is...',
+              type: 'multiple-choice',
+              options: ['$50', '$500', '$5,000', '$50,000'],
+              correctAnswer: 1,
+              explanation: 'Start with $500-$1,000. This covers most minor emergencies and is achievable for beginners.',
+              points: 10
+            },
+            {
+              id: 5,
+              question: 'True or False: Your budget should be so tight you never enjoy life.',
+              type: 'true-false',
+              options: ['True', 'False'],
+              correctAnswer: 1,
+              explanation: 'False! A sustainable budget includes fun money. Being too restrictive leads to burnout.',
+              points: 10
+            }
+          ]
+        }
+      })
+
+      console.log('✅ Created quizzes for all lessons')
+    }
   }
 
   console.log('\n🎉 Database seeded!')
