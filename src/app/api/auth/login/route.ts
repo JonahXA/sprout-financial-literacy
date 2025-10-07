@@ -60,15 +60,8 @@ export async function POST(request: Request) {
       { expiresIn: '7d' }
     )
 
-    cookies().set('token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7
-    })
-
-    return NextResponse.json({
+    // Set cookie with response to ensure it's sent correctly
+    const response = NextResponse.json({
       id: user.id,
       email: user.email,
       firstName: user.firstName,
@@ -76,6 +69,16 @@ export async function POST(request: Request) {
       role: user.role,
       school: user.school
     })
+
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7
+    })
+
+    return response
   } catch (error) {
     console.error('Login error:', error)
     return NextResponse.json({ error: 'Login failed' }, { status: 500 })
