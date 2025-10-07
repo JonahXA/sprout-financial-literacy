@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   console.log('[Middleware]', pathname, 'has token:', !!token?.value)
 
   // Protected routes that require authentication
-  const protectedPaths = ['/dashboard', '/teacher']
+  const protectedPaths = ['/dashboard', '/teacher', '/admin']
   const isProtectedPath = protectedPaths.some(path => pathname.startsWith(path))
 
   const jwtSecret = process.env.JWT_SECRET
@@ -23,58 +23,57 @@ export async function middleware(request: NextRequest) {
 
   const secret = new TextEncoder().encode(jwtSecret)
 
-  // Validate token only on protected routes
-  if (token?.value && isProtectedPath) {
+  // If there's a token, validate it regardless of path
+  // This ensures invalid tokens are cleared everywhere
+  if (token?.value) {
     try {
       await jwtVerify(token.value, secret)
-      console.log('[Middleware] Token valid for protected path:', pathname)
+      console.log('[Middleware] Token valid')
+
+      // Redirect authenticated users away from login/register
+      if (pathname === '/login' || pathname === '/register') {
+        console.log('[Middleware] Valid token on auth page, redirecting to dashboard')
+        return NextResponse.redirect(new URL('/dashboard', request.url))
+      }
+
+      // Allow access to protected routes
       return NextResponse.next()
     } catch (error) {
-      console.error('[Middleware] Token validation failed:', error)
-      // Token is invalid - clear it and redirect to login
-      const response = NextResponse.redirect(new URL('/login', request.url))
-      response.cookies.set('token', '', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-        maxAge: 0,
-        expires: new Date(0)
-      })
-      return response
+      console.error('[Middleware] Token validation failed, clearing cookie')
+
+      // Token is invalid - clear it
+      if (isProtectedPath) {
+        // On protected routes, redirect to login
+        const response = NextResponse.redirect(new URL('/login', request.url))
+        response.cookies.delete('token')
+        return response
+      } else {
+        // On public routes, just clear the cookie and continue
+        const response = NextResponse.next()
+        response.cookies.delete('token')
+        return response
+      }
     }
   }
 
-  if (isProtectedPath && !token) {
+  // No token - redirect if trying to access protected route
+  if (isProtectedPath) {
     console.log('[Middleware] No token, redirecting to login')
     return NextResponse.redirect(new URL('/login', request.url))
-  }
-
-  // Redirect authenticated users away from login/register (only if token is valid)
-  if (token?.value && (pathname === '/login' || pathname === '/register')) {
-    try {
-      await jwtVerify(token.value, secret)
-      console.log('[Middleware] Valid token on login page, redirecting to dashboard')
-      return NextResponse.redirect(new URL('/dashboard', request.url))
-    } catch (error) {
-      console.log('[Middleware] Invalid token on login page, clearing it')
-      // Invalid token on login page - clear it and allow login
-      const response = NextResponse.next()
-      response.cookies.set('token', '', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-        maxAge: 0,
-        expires: new Date(0)
-      })
-      return response
-    }
   }
 
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/teacher/:path*', '/login', '/register']
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
 }
