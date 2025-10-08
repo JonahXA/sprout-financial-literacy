@@ -1,0 +1,2217 @@
+{
+  "id": "pf-essentials-25min-modules",
+  "title": "Personal Finance Essentials (25-Min Module Pack)",
+  "gradeRange": "9-12",
+  "version": "1.0",
+  "estimatedTotalHours": 12.0,
+  "modules": [
+    {
+      "moduleId": "mod-1-mindset",
+      "title": "Financial Decision-Making & Mindset",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Financial Decision-Making & Mindset.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Decisions have tradeoffs",
+              "text": "Every choice costs you the next best alternative (opportunity cost)."
+            },
+            {
+              "title": "5-step decision model",
+              "text": "Define \u2192 Options \u2192 Evaluate \u2192 Decide \u2192 Review."
+            },
+            {
+              "title": "Bias & influence",
+              "text": "Ads, peers, and present bias can push overspending."
+            },
+            {
+              "title": "Quick check",
+              "inlineQuestion": {
+                "id": "m1-tf1",
+                "type": "true_false",
+                "prompt": "A good decision process reduces impulse buys.",
+                "answer": "true",
+                "explanation": "Process adds pause and comparison."
+              }
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Opportunity Cost",
+              "definition": "Value of the next best alternative you give up."
+            },
+            {
+              "term": "Present Bias",
+              "definition": "Overvaluing now vs future outcomes."
+            },
+            {
+              "term": "Sunk Cost",
+              "definition": "Past cost that should not affect new decisions."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Tradeoff visualizer: allocate $50 among A/B/C and see opportunity cost."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "You have $40: new shirt or save toward a phone fund?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Buy shirt now"
+            },
+            {
+              "id": "b",
+              "text": "Split: $20 shirt, $20 save"
+            },
+            {
+              "id": "c",
+              "text": "Save all $40 for the phone"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Balanced choice acknowledges want but funds the goal; any is defendable, discussion-based."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m1-q1",
+              "type": "mcq",
+              "prompt": "Which best defines opportunity cost?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Extra cash from a discount"
+                },
+                {
+                  "id": "b",
+                  "text": "The next best alternative foregone"
+                },
+                {
+                  "id": "c",
+                  "text": "The full price of an item"
+                },
+                {
+                  "id": "d",
+                  "text": "The tax on a purchase"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Choosing A means giving up B (the next best option)."
+            },
+            {
+              "id": "m1-q2",
+              "type": "true_false",
+              "prompt": "Advertisements cannot affect financial choices.",
+              "answer": "false",
+              "explanation": "They can frame value and urgency."
+            },
+            {
+              "id": "m1-q3",
+              "type": "mcq",
+              "prompt": "First step in a good decision model?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Evaluate options"
+                },
+                {
+                  "id": "b",
+                  "text": "Define the problem/goal"
+                },
+                {
+                  "id": "c",
+                  "text": "Make a decision"
+                },
+                {
+                  "id": "d",
+                  "text": "Review outcome"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Clarity first avoids random choices."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-2-income",
+      "title": "Earning Money & Income Sources",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Earning Money & Income Sources.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Active vs Passive",
+              "text": "Active income = work for pay; passive = money that earns money (dividends, rent)."
+            },
+            {
+              "title": "Skills & earnings",
+              "text": "More skills/credentials can increase lifetime earnings."
+            },
+            {
+              "title": "Benefits matter",
+              "text": "Health insurance, PTO, and 401(k) match add hidden value."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Active Income",
+              "definition": "Money earned from working (wages, salary)."
+            },
+            {
+              "term": "Passive Income",
+              "definition": "Earnings from assets (dividends, interest, rent)."
+            },
+            {
+              "term": "Total Compensation",
+              "definition": "Pay + benefits (insurance, retirement match, etc.)."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Total compensation calculator: wage + benefits estimator."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Choose between $14/hr no benefits vs $13/hr with $0.50/hr 401(k) match and paid lunches.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "$14/hr, no benefits"
+            },
+            {
+              "id": "b",
+              "text": "$13/hr + match + lunches"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Benefits increase total comp and future value."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m2-q1",
+              "type": "mcq",
+              "prompt": "Which is passive income?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Babysitting"
+                },
+                {
+                  "id": "b",
+                  "text": "Stock dividends"
+                },
+                {
+                  "id": "c",
+                  "text": "Freelance design"
+                },
+                {
+                  "id": "d",
+                  "text": "Hourly retail"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Dividends are earnings from investments."
+            },
+            {
+              "id": "m2-q2",
+              "type": "mcq",
+              "prompt": "Which increases total compensation without raising wage?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Longer commute"
+                },
+                {
+                  "id": "b",
+                  "text": "Health insurance benefit"
+                },
+                {
+                  "id": "c",
+                  "text": "Unpaid overtime"
+                },
+                {
+                  "id": "d",
+                  "text": "None"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Benefits are part of total comp."
+            },
+            {
+              "id": "m2-q3",
+              "type": "true_false",
+              "prompt": "Education/skills can affect lifetime income.",
+              "answer": "true",
+              "explanation": "They influence job access and pay."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-3-budgeting",
+      "title": "Budgeting & Money Management",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Budgeting & Money Management.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Budget basics",
+              "text": "Plan your money: income = needs + wants + saving."
+            },
+            {
+              "title": "50/30/20 rule",
+              "text": "Guide: 50% needs, 30% wants, 20% saving/investing."
+            },
+            {
+              "title": "Track net pay",
+              "text": "Budget with take-home pay, not gross."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Net Pay",
+              "definition": "Take-home after taxes/deductions."
+            },
+            {
+              "term": "Fixed Expense",
+              "definition": "Same each month (rent, phone plan)."
+            },
+            {
+              "term": "Variable Expense",
+              "definition": "Changes monthly (groceries, gas)."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Budget pie slider: allocate income to needs/wants/saving."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Net pay $600. Needs $360, Wants $220. Savings goal $100. What adjust?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Cut wants by $60"
+            },
+            {
+              "id": "b",
+              "text": "Cut needs by $40"
+            },
+            {
+              "id": "c",
+              "text": "Increase income by $60 immediately"
+            },
+            {
+              "id": "d",
+              "text": "Do nothing"
+            }
+          ],
+          "answer": "a",
+          "explanation": "$360+$220=$580 leaving $20; cut wants $60 to free $100 for savings."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m3-q1",
+              "type": "mcq",
+              "prompt": "Which is a NEED?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Streaming service"
+                },
+                {
+                  "id": "b",
+                  "text": "Bus pass to job"
+                },
+                {
+                  "id": "c",
+                  "text": "Concert"
+                },
+                {
+                  "id": "d",
+                  "text": "Designer shoes"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Transport to earn income is a need."
+            },
+            {
+              "id": "m3-q2",
+              "type": "true_false",
+              "prompt": "Budgeting with gross pay is best.",
+              "answer": "false",
+              "explanation": "Use net pay for realistic budgets."
+            },
+            {
+              "id": "m3-q3",
+              "type": "mcq",
+              "prompt": "50/30/20 allocates 20% to:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Needs"
+                },
+                {
+                  "id": "b",
+                  "text": "Wants"
+                },
+                {
+                  "id": "c",
+                  "text": "Savings/Investing"
+                },
+                {
+                  "id": "d",
+                  "text": "Debt only"
+                }
+              ],
+              "answer": "c",
+              "explanation": "20% typically goes to savings/investing (and extra debt paydown)."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-4-saving",
+      "title": "Saving & Emergency Funds",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Saving & Emergency Funds.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Pay yourself first",
+              "text": "Automate saving before spending to ensure consistency."
+            },
+            {
+              "title": "Emergency fund",
+              "text": "Save 3\u20136 months of essentials to handle surprises."
+            },
+            {
+              "title": "Start small",
+              "text": "Even $5/week builds the habit and the balance."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Emergency Fund",
+              "definition": "Cash buffer for unexpected costs."
+            },
+            {
+              "term": "Automation",
+              "definition": "Automatic transfer each payday to savings."
+            },
+            {
+              "term": "Liquidity",
+              "definition": "How quickly you can use money without loss."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Compound interest: start age, deposit, rate sliders with growth chart."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Unexpected $350 car repair. Savings $250, checking $100, credit APR 22%. Best move?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Charge it and pay minimums"
+            },
+            {
+              "id": "b",
+              "text": "Use savings + checking; rebuild fund after"
+            },
+            {
+              "id": "c",
+              "text": "Delay repair indefinitely"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Avoid high interest; use buffer and replenish."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m4-q1",
+              "type": "true_false",
+              "prompt": "Saving whatever is left after spending works best.",
+              "answer": "false",
+              "explanation": "Pay yourself first is more reliable."
+            },
+            {
+              "id": "m4-q2",
+              "type": "mcq",
+              "prompt": "Emergency fund target (common guidance):",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "1 week"
+                },
+                {
+                  "id": "b",
+                  "text": "1 month"
+                },
+                {
+                  "id": "c",
+                  "text": "3\u20136 months"
+                },
+                {
+                  "id": "d",
+                  "text": "12 months"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Many advisors suggest 3\u20136 months of essentials."
+            },
+            {
+              "id": "m4-q3",
+              "type": "mcq",
+              "prompt": "Most liquid:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "CD"
+                },
+                {
+                  "id": "b",
+                  "text": "Savings account"
+                },
+                {
+                  "id": "c",
+                  "text": "Used car"
+                },
+                {
+                  "id": "d",
+                  "text": "Stock index fund"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Savings accounts are typically most liquid among these."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-5-investing",
+      "title": "Investing Basics",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Investing Basics.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Save vs Invest",
+              "text": "Saving = safety/short-term; Investing = growth/long-term with risk."
+            },
+            {
+              "title": "Vehicles",
+              "text": "Stocks, bonds, index funds/ETFs offer different risk/return."
+            },
+            {
+              "title": "Diversify",
+              "text": "Spread across assets to reduce risk."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Stock",
+              "definition": "Ownership share in a company."
+            },
+            {
+              "term": "Bond",
+              "definition": "Loan to a company/government with interest."
+            },
+            {
+              "term": "ETF/Index Fund",
+              "definition": "Basket tracking many securities."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Risk/return sandbox: mix stocks/bonds and see volatility bands."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Goal in 8 years: college tuition. Mostly savings or some investing?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "All checking"
+            },
+            {
+              "id": "b",
+              "text": "Mix of high-yield savings and broad index fund"
+            },
+            {
+              "id": "c",
+              "text": "Single penny stock"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Balance risk and growth over medium horizon."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m5-q1",
+              "type": "mcq",
+              "prompt": "Diversification helps by:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Guaranteeing gains"
+                },
+                {
+                  "id": "b",
+                  "text": "Eliminating all risk"
+                },
+                {
+                  "id": "c",
+                  "text": "Reducing impact of one asset"
+                },
+                {
+                  "id": "d",
+                  "text": "Increasing fees"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Spreading risk reduces single-asset shocks."
+            },
+            {
+              "id": "m5-q2",
+              "type": "true_false",
+              "prompt": "Investing is risk-free over short periods.",
+              "answer": "false",
+              "explanation": "Values can fluctuate; risk exists."
+            },
+            {
+              "id": "m5-q3",
+              "type": "mcq",
+              "prompt": "Index fund is:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "One company"
+                },
+                {
+                  "id": "b",
+                  "text": "A managed savings account"
+                },
+                {
+                  "id": "c",
+                  "text": "A basket tracking a market"
+                },
+                {
+                  "id": "d",
+                  "text": "Only for rich investors"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Index funds track many companies, lowering single-company risk."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-6-banking",
+      "title": "Banking & Financial Services",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Banking & Financial Services.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Account types",
+              "text": "Checking for spending, Savings for goals, CDs for higher rate/time lock."
+            },
+            {
+              "title": "FDIC/NCUA",
+              "text": "Federal insurance protects deposits up to limits."
+            },
+            {
+              "title": "Avoid fees",
+              "text": "Use in-network ATMs, keep minimums, set alerts."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Overdraft",
+              "definition": "Spending more than account balance, often with fees."
+            },
+            {
+              "term": "CD (Certificate of Deposit)",
+              "definition": "Time-locked deposit with fixed term and rate."
+            },
+            {
+              "term": "FDIC/NCUA",
+              "definition": "Federal deposit insurance for banks/credit unions."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Fee impact tool: ATM/overdraft frequency \u2192 annual cost."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Out-of-network ATM fee $3 twice a week. Yearly cost?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "$36"
+            },
+            {
+              "id": "b",
+              "text": "$104"
+            },
+            {
+              "id": "c",
+              "text": "$312"
+            },
+            {
+              "id": "d",
+              "text": "$600"
+            }
+          ],
+          "answer": "c",
+          "explanation": "$3 \u00d7 2 \u00d7 52 = $312. Avoid via in-network or cash-back."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m6-q1",
+              "type": "mcq",
+              "prompt": "Best account for daily spending:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Checking"
+                },
+                {
+                  "id": "b",
+                  "text": "Savings"
+                },
+                {
+                  "id": "c",
+                  "text": "CD"
+                },
+                {
+                  "id": "d",
+                  "text": "Brokerage"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Checking is designed for transactions."
+            },
+            {
+              "id": "m6-q2",
+              "type": "true_false",
+              "prompt": "FDIC insurance protects typical bank deposits up to limits.",
+              "answer": "true",
+              "explanation": "Coverage limits apply per ownership category."
+            },
+            {
+              "id": "m6-q3",
+              "type": "mcq",
+              "prompt": "Common fee to avoid:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "In-network ATM"
+                },
+                {
+                  "id": "b",
+                  "text": "Overdraft"
+                },
+                {
+                  "id": "c",
+                  "text": "Direct deposit"
+                },
+                {
+                  "id": "d",
+                  "text": "e-Statements"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Overdrafts can be costly."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-7-credit",
+      "title": "Credit & Credit Scores",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Credit & Credit Scores.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "What is credit?",
+              "text": "Borrow now, repay later, usually with interest."
+            },
+            {
+              "title": "Why it matters",
+              "text": "Affects loan access, interest rates, housing, even jobs."
+            },
+            {
+              "title": "Use wisely",
+              "text": "Borrow only what you can repay; pay on time."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Credit Report",
+              "definition": "Record of credit accounts and payment history."
+            },
+            {
+              "term": "Credit Score",
+              "definition": "Numeric summary of credit risk."
+            },
+            {
+              "term": "Utilization",
+              "definition": "Credit used / credit limit."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Utilization simulator: balances/limits \u2192 score impact estimate (educational)."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Your utilization is 50%. Best improvement step?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Miss a payment to show need"
+            },
+            {
+              "id": "b",
+              "text": "Pay down balances to <30%"
+            },
+            {
+              "id": "c",
+              "text": "Open 5 new cards quickly"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Lower utilization helps; missed payments hurt most."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m7-q1",
+              "type": "mcq",
+              "prompt": "Biggest score factor is usually:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Credit mix"
+                },
+                {
+                  "id": "b",
+                  "text": "New inquiries"
+                },
+                {
+                  "id": "c",
+                  "text": "Payment history"
+                },
+                {
+                  "id": "d",
+                  "text": "Age of credit"
+                }
+              ],
+              "answer": "c",
+              "explanation": "On-time payment history is typically the largest factor."
+            },
+            {
+              "id": "m7-q2",
+              "type": "true_false",
+              "prompt": "Keeping balances near limits helps your score.",
+              "answer": "false",
+              "explanation": "High utilization can hurt scores."
+            },
+            {
+              "id": "m7-q3",
+              "type": "mcq",
+              "prompt": "Good first step to build credit:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Ignore bills"
+                },
+                {
+                  "id": "b",
+                  "text": "On-time small secured card"
+                },
+                {
+                  "id": "c",
+                  "text": "Max every card"
+                },
+                {
+                  "id": "d",
+                  "text": "Close oldest account"
+                }
+              ],
+              "answer": "b",
+              "explanation": "On-time history builds trust."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-8-credit-cards",
+      "title": "Credit Cards & Smart Borrowing",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Credit Cards & Smart Borrowing.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "APR & grace period",
+              "text": "APR is yearly interest if you carry a balance; grace = time before interest accrues."
+            },
+            {
+              "title": "Minimum payments",
+              "text": "Paying minimums is costly; interest accrues on the rest."
+            },
+            {
+              "title": "Fees",
+              "text": "Annual, late, foreign transaction\u2014compare offers."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "APR",
+              "definition": "Annual Percentage Rate on borrowing."
+            },
+            {
+              "term": "Grace Period",
+              "definition": "Time you can pay in full before interest."
+            },
+            {
+              "term": "Statement Balance",
+              "definition": "Amount due for the cycle."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Minimum payment calculator: time and interest to pay off."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "$500 balance, 22% APR, only minimums. Outcome?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "No interest charged"
+            },
+            {
+              "id": "b",
+              "text": "Pay interest and take long to repay"
+            },
+            {
+              "id": "c",
+              "text": "Balance forgiven"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Carrying balance triggers interest; minimums prolong debt."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m8-q1",
+              "type": "mcq",
+              "prompt": "Avoid interest by:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Paying statement balance by due date"
+                },
+                {
+                  "id": "b",
+                  "text": "Paying minimum only"
+                },
+                {
+                  "id": "c",
+                  "text": "Paying after grace ends"
+                },
+                {
+                  "id": "d",
+                  "text": "Ignoring bill"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Full payment within grace avoids interest."
+            },
+            {
+              "id": "m8-q2",
+              "type": "true_false",
+              "prompt": "Annual fees are identical on all cards.",
+              "answer": "false",
+              "explanation": "Cards vary; compare terms."
+            },
+            {
+              "id": "m8-q3",
+              "type": "mcq",
+              "prompt": "If traveling abroad, check:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Late fees"
+                },
+                {
+                  "id": "b",
+                  "text": "Foreign transaction fees"
+                },
+                {
+                  "id": "c",
+                  "text": "Cash advance APR"
+                },
+                {
+                  "id": "d",
+                  "text": "None"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Foreign transaction fees can add costs."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-9-loans",
+      "title": "Loans & Debt Management",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Loans & Debt Management.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Loan parts",
+              "text": "Principal, interest rate, term length determine payments and total cost."
+            },
+            {
+              "title": "Secured vs unsecured",
+              "text": "Secured has collateral (car), unsecured doesn\u2019t (personal loan)."
+            },
+            {
+              "title": "Total cost",
+              "text": "Longer term lowers payment but can raise total interest."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Principal",
+              "definition": "Amount borrowed."
+            },
+            {
+              "term": "Term",
+              "definition": "Length of time to repay."
+            },
+            {
+              "term": "Amortization",
+              "definition": "Schedule of payments over time."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Loan amortization explorer: term vs total interest."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Choose: lower monthly payment with longer term vs higher payment shorter term.",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Longer term\u2014lowest total interest"
+            },
+            {
+              "id": "b",
+              "text": "Shorter term\u2014usually lower total interest"
+            },
+            {
+              "id": "c",
+              "text": "Same total interest"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Shorter terms typically reduce total interest paid."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m9-q1",
+              "type": "mcq",
+              "prompt": "Collateral is used in:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Unsecured loan"
+                },
+                {
+                  "id": "b",
+                  "text": "Secured loan"
+                },
+                {
+                  "id": "c",
+                  "text": "Credit card"
+                },
+                {
+                  "id": "d",
+                  "text": "Grant"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Secured loans are backed by assets."
+            },
+            {
+              "id": "m9-q2",
+              "type": "true_false",
+              "prompt": "Extending term always saves total interest.",
+              "answer": "false",
+              "explanation": "Usually increases total interest despite lower monthly payments."
+            },
+            {
+              "id": "m9-q3",
+              "type": "mcq",
+              "prompt": "Good debt strategy:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Pay late to save cash"
+                },
+                {
+                  "id": "b",
+                  "text": "Make extra principal payments when possible"
+                },
+                {
+                  "id": "c",
+                  "text": "Ignore statements"
+                },
+                {
+                  "id": "d",
+                  "text": "Borrow to pay interest"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Extra principal reduces interest over life."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-10-college",
+      "title": "College & Education Financing",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: College & Education Financing.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Cost of attendance",
+              "text": "Tuition, fees, room/board, books, transport."
+            },
+            {
+              "title": "Aid types",
+              "text": "Grants/scholarships (free), work-study (earn), loans (repay with interest)."
+            },
+            {
+              "title": "Compare offers",
+              "text": "Net price = cost minus free aid; consider debt impact."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "FAFSA",
+              "definition": "Application for federal student aid."
+            },
+            {
+              "term": "Subsidized Loan",
+              "definition": "Govt pays interest while in school (eligibility-based)."
+            },
+            {
+              "term": "Net Price",
+              "definition": "Out-of-pocket after grants/scholarships."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Net price calculator: cost minus grants/scholarships/work-study."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Offer A: lower tuition, less aid. Offer B: higher tuition, big scholarship. Which could be cheaper?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "A is always cheaper"
+            },
+            {
+              "id": "b",
+              "text": "B could be cheaper after aid"
+            },
+            {
+              "id": "c",
+              "text": "They\u2019re equal"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Compare net price, not sticker price."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m10-q1",
+              "type": "mcq",
+              "prompt": "Which is free money?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Grant"
+                },
+                {
+                  "id": "b",
+                  "text": "Loan"
+                },
+                {
+                  "id": "c",
+                  "text": "Credit"
+                },
+                {
+                  "id": "d",
+                  "text": "None"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Grants/scholarships don\u2019t need repayment."
+            },
+            {
+              "id": "m10-q2",
+              "type": "true_false",
+              "prompt": "Private loans always beat federal loans.",
+              "answer": "false",
+              "explanation": "Federal loans often have protections/repayment options."
+            },
+            {
+              "id": "m10-q3",
+              "type": "mcq",
+              "prompt": "Work-study is:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Loan"
+                },
+                {
+                  "id": "b",
+                  "text": "Grant"
+                },
+                {
+                  "id": "c",
+                  "text": "Earnings for part-time campus job"
+                },
+                {
+                  "id": "d",
+                  "text": "Scholarship"
+                }
+              ],
+              "answer": "c",
+              "explanation": "You earn wages via approved jobs."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-11-taxes",
+      "title": "Understanding Taxes & Paychecks",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Understanding Taxes & Paychecks.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Paycheck basics",
+              "text": "Gross vs net pay; withholdings for federal/state and FICA."
+            },
+            {
+              "title": "Why file taxes",
+              "text": "Reconcile income and withholdings; may get refund or owe."
+            },
+            {
+              "title": "Simple filing",
+              "text": "Use e-file tools; keep W-2/1099 and records."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "W-2",
+              "definition": "Form reporting employee wages and taxes withheld."
+            },
+            {
+              "term": "FICA",
+              "definition": "Payroll taxes for Social Security & Medicare."
+            },
+            {
+              "term": "Withholding",
+              "definition": "Taxes taken out of paycheck in advance."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Paycheck builder: gross \u2192 withholdings \u2192 net pay."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Net pay seems low; which explains it?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Withholding and FICA reduce take-home"
+            },
+            {
+              "id": "b",
+              "text": "Employer mistake only"
+            },
+            {
+              "id": "c",
+              "text": "Taxes never affect net pay"
+            }
+          ],
+          "answer": "a",
+          "explanation": "Withholding and payroll taxes reduce net pay."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m11-q1",
+              "type": "mcq",
+              "prompt": "Net pay is:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Gross pay minus taxes/deductions"
+                },
+                {
+                  "id": "b",
+                  "text": "Gross pay"
+                },
+                {
+                  "id": "c",
+                  "text": "Untaxed income"
+                },
+                {
+                  "id": "d",
+                  "text": "Refund amount"
+                }
+              ],
+              "answer": "a",
+              "explanation": "It\u2019s take-home after deductions."
+            },
+            {
+              "id": "m11-q2",
+              "type": "true_false",
+              "prompt": "You might receive a refund if you overpaid taxes during the year.",
+              "answer": "true",
+              "explanation": "Filing reconciles what you owe vs paid."
+            },
+            {
+              "id": "m11-q3",
+              "type": "mcq",
+              "prompt": "FICA funds:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Highways"
+                },
+                {
+                  "id": "b",
+                  "text": "Social Security & Medicare"
+                },
+                {
+                  "id": "c",
+                  "text": "Schools"
+                },
+                {
+                  "id": "d",
+                  "text": "Defense only"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Payroll taxes fund SS & Medicare."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-12-insurance",
+      "title": "Insurance & Risk Management",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Insurance & Risk Management.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Why insurance",
+              "text": "Protects against large, unexpected losses."
+            },
+            {
+              "title": "Types",
+              "text": "Health, auto, renters/home, life (basic)."
+            },
+            {
+              "title": "Premium vs deductible",
+              "text": "Pay premium regularly; deductible is what you pay before coverage."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Premium",
+              "definition": "Amount paid for coverage (monthly/annual)."
+            },
+            {
+              "term": "Deductible",
+              "definition": "Amount you pay before insurance pays."
+            },
+            {
+              "term": "Copay",
+              "definition": "Fixed amount per service/visit."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Premium/deductible tradeoff explorer for low/high usage."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Lower premium plan with high deductible vs higher premium, low deductible. Which suits a low-usage student?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "High premium, low deductible"
+            },
+            {
+              "id": "b",
+              "text": "Low premium, high deductible"
+            }
+          ],
+          "answer": "b",
+          "explanation": "If you rarely use care, lower premiums can save; risks still apply."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m12-q1",
+              "type": "mcq",
+              "prompt": "Renters insurance covers:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Your belongings in a rental"
+                },
+                {
+                  "id": "b",
+                  "text": "Landlord\u2019s building only"
+                },
+                {
+                  "id": "c",
+                  "text": "Your car"
+                },
+                {
+                  "id": "d",
+                  "text": "Tuition"
+                }
+              ],
+              "answer": "a",
+              "explanation": "Protects your property and liability at rental."
+            },
+            {
+              "id": "m12-q2",
+              "type": "true_false",
+              "prompt": "Deductible is paid after insurance pays.",
+              "answer": "false",
+              "explanation": "It\u2019s paid before coverage kicks in."
+            },
+            {
+              "id": "m12-q3",
+              "type": "mcq",
+              "prompt": "Auto insurance is usually:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Optional everywhere"
+                },
+                {
+                  "id": "b",
+                  "text": "Required by law in many states"
+                },
+                {
+                  "id": "c",
+                  "text": "Illegal"
+                },
+                {
+                  "id": "d",
+                  "text": "Only for luxury cars"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Most states require some coverage."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-13-consumer",
+      "title": "Smart Consumer Skills & Fraud Protection",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Smart Consumer Skills & Fraud Protection.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Smart shopping",
+              "text": "Compare price, quality, warranty, and return policy."
+            },
+            {
+              "title": "Ads & tricks",
+              "text": "Anchoring, scarcity, and bundling can sway choices."
+            },
+            {
+              "title": "Fraud safety",
+              "text": "Protect SSN; watch phishing; use strong passwords & 2FA."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Warranty",
+              "definition": "Promise to repair/replace within period."
+            },
+            {
+              "term": "Phishing",
+              "definition": "Trick to steal info via fake messages."
+            },
+            {
+              "term": "Chargeback",
+              "definition": "Dispute a card charge for fraud/issue."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Deal comparer: price, warranty, return policy matrix."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "You get a \u2018scholarship\u2019 email asking for SSN upfront. Best action?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "Send SSN"
+            },
+            {
+              "id": "b",
+              "text": "Verify sender/site; report if suspicious"
+            },
+            {
+              "id": "c",
+              "text": "Click links to see more"
+            }
+          ],
+          "answer": "b",
+          "explanation": "Verify via official channels; don\u2019t share sensitive info."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m13-q1",
+              "type": "mcq",
+              "prompt": "Best first step to compare laptops:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Pick most expensive"
+                },
+                {
+                  "id": "b",
+                  "text": "Read reviews/specs and prices"
+                },
+                {
+                  "id": "c",
+                  "text": "Buy from first ad"
+                },
+                {
+                  "id": "d",
+                  "text": "Choose random"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Compare specs, reviews, and price/value."
+            },
+            {
+              "id": "m13-q2",
+              "type": "true_false",
+              "prompt": "A strong unique password and 2FA reduce risk.",
+              "answer": "true",
+              "explanation": "Both help prevent account takeover."
+            },
+            {
+              "id": "m13-q3",
+              "type": "mcq",
+              "prompt": "If charged for a product never received:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Do nothing"
+                },
+                {
+                  "id": "b",
+                  "text": "Wait months"
+                },
+                {
+                  "id": "c",
+                  "text": "File chargeback/contact seller"
+                },
+                {
+                  "id": "d",
+                  "text": "Pay again"
+                }
+              ],
+              "answer": "c",
+              "explanation": "Use card protections and contact seller."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-14-planning",
+      "title": "Financial Planning & Future Goals",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Financial Planning & Future Goals.",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "SMART goals",
+              "text": "Specific, Measurable, Achievable, Relevant, Time-bound."
+            },
+            {
+              "title": "Simple plan",
+              "text": "Budget \u2192 Save/Invest \u2192 Protect \u2192 Review."
+            },
+            {
+              "title": "Retirement basics",
+              "text": "401(k)/IRA + compounding over decades."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "SMART",
+              "definition": "Goal framework to improve follow-through."
+            },
+            {
+              "term": "Rebalancing",
+              "definition": "Adjust investments back to target mix."
+            },
+            {
+              "term": "401(k) match",
+              "definition": "Employer contributes when you do, up to a limit."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Goal planner: target amount/date \u2192 monthly save required."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Goal: Buy used car in 12 months for $4,000. With $200 saved now, monthly save needed?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "$300/mo"
+            },
+            {
+              "id": "b",
+              "text": "$316/mo"
+            },
+            {
+              "id": "c",
+              "text": "$400/mo"
+            },
+            {
+              "id": "d",
+              "text": "$350/mo"
+            }
+          ],
+          "answer": "b",
+          "explanation": "($4,000-$200)/12 \u2248 $316.67."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m14-q1",
+              "type": "mcq",
+              "prompt": "Which is SMARTest?",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Save money soon"
+                },
+                {
+                  "id": "b",
+                  "text": "Save $600 in 3 months by auto-saving $200/mo"
+                },
+                {
+                  "id": "c",
+                  "text": "Be richer later"
+                },
+                {
+                  "id": "d",
+                  "text": "Invest more"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Clear amount and timeline."
+            },
+            {
+              "id": "m14-q2",
+              "type": "true_false",
+              "prompt": "Reviewing your plan annually helps keep goals on track.",
+              "answer": "true",
+              "explanation": "Life changes; plans should adjust."
+            },
+            {
+              "id": "m14-q3",
+              "type": "mcq",
+              "prompt": "Good first step for retirement:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Ignore employer match"
+                },
+                {
+                  "id": "b",
+                  "text": "Contribute to 401(k) to get full match"
+                },
+                {
+                  "id": "c",
+                  "text": "Borrow from 401(k) now"
+                },
+                {
+                  "id": "d",
+                  "text": "Only cash"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Match is essentially free money."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    },
+    {
+      "moduleId": "mod-15-entrepreneurship",
+      "title": "Entrepreneurship Basics (Bonus)",
+      "estimatedTimeMinutes": 22,
+      "sections": [
+        {
+          "type": "welcome",
+          "estMinutes": 2,
+          "storyHook": "A quick real-life scenario to introduce: Entrepreneurship Basics (Bonus).",
+          "reflection": "What would you do first in this situation?",
+          "quickFact": "Learning small money habits early compounds into big life impact."
+        },
+        {
+          "type": "reading_slides",
+          "estMinutes": 6,
+          "cards": [
+            {
+              "title": "Idea to plan",
+              "text": "Identify a problem; outline solution and customers."
+            },
+            {
+              "title": "Costs & pricing",
+              "text": "Estimate startup and monthly costs; price for margin."
+            },
+            {
+              "title": "Basics of compliance",
+              "text": "Local permits, taxes, simple bookkeeping."
+            }
+          ]
+        },
+        {
+          "type": "flashcards",
+          "estMinutes": 3,
+          "cards": [
+            {
+              "term": "Break-even",
+              "definition": "Sales where revenue equals total costs."
+            },
+            {
+              "term": "Cash Flow",
+              "definition": "Timing of money in and out."
+            },
+            {
+              "term": "Margin",
+              "definition": "(Price - Cost) / Price."
+            }
+          ],
+          "spacedRepetition": true
+        },
+        {
+          "type": "simulation",
+          "estMinutes": 4,
+          "description": "Break-even tool: fixed+variable costs \u2192 price & units."
+        },
+        {
+          "type": "scenario",
+          "estMinutes": 3,
+          "prompt": "Lawn care: mower fuel $3/job, time 1 hr. Price to target 50% margin?",
+          "choices": [
+            {
+              "id": "a",
+              "text": "$6"
+            },
+            {
+              "id": "b",
+              "text": "$10"
+            },
+            {
+              "id": "c",
+              "text": "$12"
+            },
+            {
+              "id": "d",
+              "text": "$20"
+            }
+          ],
+          "answer": "c",
+          "explanation": "If cost \u2248 $6 (fuel+wear), price $12 gives 50% margin."
+        },
+        {
+          "type": "quiz",
+          "estMinutes": 4,
+          "questions": [
+            {
+              "id": "m15-q1",
+              "type": "mcq",
+              "prompt": "A simple business plan should include:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "Only logo"
+                },
+                {
+                  "id": "b",
+                  "text": "Market, costs, pricing, operations"
+                },
+                {
+                  "id": "c",
+                  "text": "Just social media"
+                },
+                {
+                  "id": "d",
+                  "text": "Nothing written"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Clarity reduces surprises."
+            },
+            {
+              "id": "m15-q2",
+              "type": "true_false",
+              "prompt": "Profit equals cash flow every month.",
+              "answer": "false",
+              "explanation": "Timing differs; profit can be positive while cash is tight."
+            },
+            {
+              "id": "m15-q3",
+              "type": "mcq",
+              "prompt": "Useful beginner record-keeping:",
+              "choices": [
+                {
+                  "id": "a",
+                  "text": "No receipts"
+                },
+                {
+                  "id": "b",
+                  "text": "Track income/expenses monthly"
+                },
+                {
+                  "id": "c",
+                  "text": "Only track income"
+                },
+                {
+                  "id": "d",
+                  "text": "Only track expenses"
+                }
+              ],
+              "answer": "b",
+              "explanation": "Basic bookkeeping informs decisions."
+            }
+          ]
+        },
+        {
+          "type": "wrap_up",
+          "estMinutes": 1,
+          "summary": "Key ideas + suggested micro-action to try in real life.",
+          "challenge": "Complete the suggested micro-action and mark it done tomorrow for a streak boost."
+        }
+      ]
+    }
+  ]
+}

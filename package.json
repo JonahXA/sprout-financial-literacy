@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "tsx prisma/seed.ts",
-    "import-curriculum": "tsx scripts/import-curriculum.ts"
+    "import-curriculum": "tsx scripts/import-curriculum.ts",
+    "import-pf-essentials": "tsx scripts/import-pf-essentials.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
