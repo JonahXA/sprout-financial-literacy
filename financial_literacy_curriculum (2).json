@@ -1,0 +1,2778 @@
+{
+  "schema_version": "1.0",
+  "program_title": "Financial Literacy: High School Path",
+  "xp_per_lesson": 10,
+  "lives_per_session": 3,
+  "streak_features": [
+    "streak_freeze",
+    "daily_goal"
+  ],
+  "modules": [
+    {
+      "module_id": "m1",
+      "title": "Financial Responsibility & Decisions",
+      "skills": [
+        "needs_vs_wants",
+        "smart_goals",
+        "decision_grids",
+        "opportunity_cost",
+        "habits_plans"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m1-l1",
+          "title": "Needs, Wants, and Goals",
+          "objectives": [
+            "Differentiate needs vs wants",
+            "Write SMART goals"
+          ],
+          "content": "You make dozens of money choices every week. Separating needs (must-haves) from wants (nice-to-haves) helps you control spending and reach your goals. A SMART goal is Specific, Measurable, Achievable, Relevant, and Time-bound. Example: \u201cSave $150 for prom shoes by May 1 by setting aside $15 per week.\u201d When a want competes with a goal, compare the short-term fun with the long-term payoff. Opportunity cost is what you give up when you choose one option over another\u2014skipping three takeout meals might fund a month of phone service or boost your emergency fund.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag each item to Need or Want for Jordan this month.",
+              "groups": {
+                "Need": [
+                  "Bus pass",
+                  "Inhaler refill",
+                  "Phone bill"
+                ],
+                "Want": [
+                  "Concert ticket",
+                  "Game skin",
+                  "Smoothie after practice"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Write a SMART saving goal for the next 30 days.",
+              "answer": "Save $60 in 30 days by transferring $2 daily to savings.",
+              "explain": "Make it specific, measurable, realistic, relevant, and dated."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which statement is a SMART goal?",
+              "options": [
+                "Save some money soon.",
+                "Save $120 in 8 weeks by auto-transferring $15/week.",
+                "Be better with money.",
+                "Stop buying snacks."
+              ],
+              "answer": 1,
+              "explain": "It\u2019s specific, measurable, time-bound, and has a clear method."
+            },
+            {
+              "type": "true_false",
+              "prompt": "Opportunity cost is the value of the next best alternative you give up.",
+              "answer": true,
+              "explain": "Choosing one thing means not choosing another\u2014time and money are limited."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m1-l2",
+          "title": "Decision Grids and Trade-offs",
+          "objectives": [
+            "Use decision grids",
+            "Evaluate trade-offs"
+          ],
+          "content": "A decision grid helps you compare options using criteria you care about. List choices across the top (e.g., \u201cBuy used bike,\u201d \u201cBus pass,\u201d \u201cRideshare\u201d) and criteria down the side (cost, convenience, time, safety). Score each 1\u20135 and total the columns. Grids don\u2019t decide for you\u2014they reveal trade-offs so you can choose with eyes open. Reread your goals and pick the option that best supports them, not just what feels good today.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag criteria under the option it best supports for \u2018Getting to work\u2019.",
+              "groups": {
+                "Buy used bike": [
+                  "One-time cost, no fares"
+                ],
+                "Bus pass": [
+                  "Low daily cost, predictable"
+                ],
+                "Rideshare": [
+                  "High convenience, higher cost"
+                ]
+              }
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "You have $60/week left after needs. Choose.",
+              "branches": [
+                {
+                  "choice": "Daily caf\u00e9 drinks",
+                  "outcome": "Short-term enjoyment, goal delayed 4 weeks."
+                },
+                {
+                  "choice": "Home-brew + save $40/week",
+                  "outcome": "Goal date moves 2 weeks earlier."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "What\u2019s the point of a decision grid?",
+              "options": [
+                "To guarantee a perfect choice",
+                "To compare options against your criteria",
+                "To force the cheapest option",
+                "To avoid making a decision"
+              ],
+              "answer": 1,
+              "explain": "It organizes information so you can weigh trade-offs clearly."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m1-l3",
+          "title": "Planning Big Moments",
+          "objectives": [
+            "Break large goals into steps",
+            "Sequence tasks"
+          ],
+          "content": "Big financial moments\u2014moving out, prom, a trip\u2014feel less overwhelming when you break them into steps: estimate total cost, set a deadline, split into weekly targets, decide how to save or earn extra, and review progress weekly. Small consistent actions beat last-minute scrambles.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Order the steps to plan a $300 trip in 10 weeks.",
+              "groups": {
+                "Ordered": [
+                  "Estimate total cost",
+                  "Set weekly target ($30/week)",
+                  "Automate transfer each payday",
+                  "Track progress weekly"
+                ]
+              }
+            },
+            {
+              "type": "slider",
+              "prompt": "If you save $20/week, how many weeks to $300?",
+              "min": 5,
+              "max": 30,
+              "start": 15,
+              "explain": "At $20/week you\u2019ll reach $300 in about 15 weeks."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Automating transfers makes it easier to hit savings targets.",
+              "answer": true,
+              "explain": "Pay-yourself-first removes willpower from the equation."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m1-l4",
+          "title": "Habits & Triggers",
+          "objectives": [
+            "Identify spending triggers",
+            "Create if-then plans"
+          ],
+          "content": "Spending triggers are people, places, or moods that lead to impulse buys. Use if\u2013then plans to stay on track: \u201cIf friends suggest food after practice, then I\u2019ll spend max $8 or suggest eating at home.\u201d Replace costly habits with low-cost alternatives and keep goals visible (phone lock-screen).",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Write one if\u2013then plan for a common spending trigger.",
+              "answer": "If I browse late-night apps, then I\u2019ll wait 24 hours before buying.",
+              "explain": "Make it specific and realistic."
+            },
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag low-cost swaps to the trigger they solve.",
+              "groups": {
+                "Late-night scrolling": [
+                  "24-hour wait list"
+                ],
+                "Boredom": [
+                  "Free campus events list"
+                ],
+                "Peer pressure": [
+                  "Budget cap + cash only"
+                ]
+              }
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which is an effective if\u2013then plan?",
+              "options": [
+                "If hungry, then I\u2019ll eat something.",
+                "If I want delivery, then I\u2019ll check fridge first and wait 20 minutes.",
+                "If I see shoes, then maybe I\u2019ll buy.",
+                "If sad, then I\u2019ll shop."
+              ],
+              "answer": 1,
+              "explain": "It inserts a pause and an alternative action."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m1-l5",
+          "title": "Opportunity Cost in Action",
+          "objectives": [
+            "Calculate simple trade-offs",
+            "Align with goals"
+          ],
+          "content": "Small daily choices add up. A $6 snack every school day is roughly $120/month. Redirecting half of that to savings funds a $60 goal monthly. Ask: does this purchase push me toward or away from my goal?",
+          "activities": [
+            {
+              "type": "numeric",
+              "prompt": "If you spend $6/day for 20 school days, how much per month?",
+              "answer": 120,
+              "tolerance": 0.5,
+              "explain": "6 \u00d7 20 = 120."
+            },
+            {
+              "type": "slider",
+              "prompt": "Move the slider to see savings if you cut snacks by 50%.",
+              "min": 0,
+              "max": 100,
+              "start": 50,
+              "explain": "At 50% cut, you\u2019d save about $60/month from the example."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Opportunity cost is zero if you don\u2019t think about it.",
+              "answer": false,
+              "explain": "It exists whether or not you notice\u2014it\u2019s the foregone alternative."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m1-l6",
+          "title": "Your Personal Plan",
+          "objectives": [
+            "Draft a 30-day plan"
+          ],
+          "content": "Combine everything: define one need, one want you\u2019ll delay, and one SMART goal. Choose two if\u2013then plans to protect your goal. Review weekly and adjust.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "State your SMART goal for the next 30 days.",
+              "answer": "Save $100 by transferring $25 each Friday from paycheck to savings.",
+              "explain": "Specific, measurable, dated."
+            },
+            {
+              "type": "type_in",
+              "prompt": "List two if\u2013then plans that support your goal.",
+              "answer": "If invited to eat out, then I\u2019ll spend max $10. If I want to buy online at night, then I\u2019ll wait 24 hours.",
+              "explain": "Tie plans directly to likely triggers."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "What should you do if you miss a weekly target?",
+              "options": [
+                "Quit the goal",
+                "Raise the target immediately",
+                "Review, adjust, and continue",
+                "Ignore it"
+              ],
+              "answer": 2,
+              "explain": "Iterate: adjust amount or timeline and keep going."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Which is a want for most students?",
+            "options": [
+              "Prescription refill",
+              "Phone data plan",
+              "Concert ticket",
+              "Bus pass"
+            ],
+            "answer": 2,
+            "explain": "Concerts are discretionary."
+          },
+          {
+            "type": "true_false",
+            "prompt": "A SMART goal must include a deadline.",
+            "answer": true,
+            "explain": "Time-bound is the T in SMART."
+          },
+          {
+            "type": "mcq",
+            "prompt": "Best choice if your top criterion is minimizing monthly cost:",
+            "options": [
+              "Rideshare daily",
+              "Buy used bike",
+              "Buy new e-bike on loan",
+              "Skip transportation"
+            ],
+            "answer": 1,
+            "explain": "A used bike eliminates fares."
+          },
+          {
+            "type": "numeric",
+            "prompt": "Saving $15/week for 8 weeks equals how much?",
+            "answer": 120,
+            "tolerance": 0.5,
+            "explain": "15 \u00d7 8 = 120."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "30-Day Money Plan",
+        "instructions": "Create a one-page plan with: (1) one SMART goal, (2) weekly target & automation, (3) two if\u2013then plans for triggers, (4) a brief reflection after week 2.",
+        "rubric": [
+          "Clarity of SMART goal",
+          "Realistic weekly target",
+          "Relevant if\u2013then plans",
+          "Reflection quality"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "goals_vocab",
+          "tradeoffs_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m2",
+      "title": "Budgeting & Money Management",
+      "skills": [
+        "cashflow",
+        "budget_methods",
+        "trimming",
+        "emergency_fund",
+        "automation",
+        "review"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m2-l1",
+          "title": "Money In, Money Out",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "A budget is a plan for your money. Start by listing income (allowance, job, gifts) and expenses fixed (rent, phone) and variable (food, entertainment). Cashflow = income \u2212 expenses. If negative, reduce variable spending or increase income. Budgets are living documents\u2014update monthly.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Sort expenses into Fixed vs Variable.",
+              "groups": {
+                "Fixed": [
+                  "Rent share",
+                  "Phone bill"
+                ],
+                "Variable": [
+                  "Snacks",
+                  "Streaming add-on",
+                  "Gas"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Calculate cashflow: income $420, expenses $380.",
+              "answer": "40",
+              "explain": "Cashflow = 420 - 380 = 40."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "numeric",
+              "prompt": "If income is $500 and expenses are $540, cashflow is?",
+              "answer": -40,
+              "tolerance": 0.5,
+              "explain": "500 - 540 = -40."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m2-l2",
+          "title": "Pick a Method: 50/30/20 vs Zero-Based",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "The 50/30/20 method allocates 50% needs, 30% wants, 20% saving/debt. Zero-based assigns every dollar a job until you reach zero. Both work\u2014choose the one you\u2019ll actually follow.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Move income $600 with 20% saving: how much to save?",
+              "min": 0,
+              "max": 600,
+              "start": 120,
+              "explain": "20% of 600 is $120."
+            },
+            {
+              "type": "drag_categorize",
+              "prompt": "Match method to description.",
+              "groups": {
+                "50/30/20": [
+                  "Simple ratio buckets"
+                ],
+                "Zero-based": [
+                  "Every dollar assigned to a category"
+                ]
+              }
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which is true?",
+              "options": [
+                "Zero-based requires precise categories.",
+                "50/30/20 uses envelopes only.",
+                "Zero-based ignores saving.",
+                "50/30/20 means 50% wants."
+              ],
+              "answer": 0,
+              "explain": "Zero-based assigns each dollar; 50/30/20 is flexible buckets."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m2-l3",
+          "title": "Trim and Reallocate",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Track spending for two weeks, then target the top two categories to trim. Replace with lower-cost alternatives and reassign savings to goals. Small cuts compound into big progress.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag to Cut/Keep/Replace.",
+              "groups": {
+                "Cut": [
+                  "Duplicate subscriptions"
+                ],
+                "Keep": [
+                  "Gym for health"
+                ],
+                "Replace": [
+                  "Caf\u00e9 drinks \u2192 home brew"
+                ]
+              }
+            },
+            {
+              "type": "slider",
+              "prompt": "Cutting $30/week adds how much monthly to savings?",
+              "min": 0,
+              "max": 200,
+              "start": 120,
+              "explain": "Roughly $120/month (4 weeks)."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Trimming one category is more effective than tiny cuts everywhere.",
+              "answer": true,
+              "explain": "Focus beats scatter\u2014stack meaningful savings."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m2-l4",
+          "title": "Emergency Fund",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "An emergency fund cushions surprises: medical copay, tire replacement, lost hours at work. Aim for an initial $500, then grow toward 3\u20136 months of expenses. Keep it safe and accessible.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Name one true emergency and one non-emergency.",
+              "answer": "Emergency: broken tooth. Non-emergency: concert ticket.",
+              "explain": "Emergencies are necessary and unexpected."
+            },
+            {
+              "type": "slider",
+              "prompt": "If expenses are $900/month, 3 months equals?",
+              "min": 0,
+              "max": 5000,
+              "start": 2700,
+              "explain": "900 \u00d7 3 = 2700."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best home for an emergency fund?",
+              "options": [
+                "Checking used daily",
+                "High-yield savings",
+                "Stock-only account",
+                "Cash in drawer"
+              ],
+              "answer": 1,
+              "explain": "It must be safe, liquid, and earn some interest."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m2-l5",
+          "title": "Pay Yourself First",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Automate a transfer to savings/payments right when income arrives. Treat savings like a bill. Automation beats willpower and prevents accidental overspending.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Write a pay-yourself-first rule for your budget.",
+              "answer": "Transfer $25 each payday to savings before spending.",
+              "explain": "Automate it."
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "You get $300 Friday. Choose first action.",
+              "branches": [
+                {
+                  "choice": "Transfer $30 to savings",
+                  "outcome": "You hit goal on time."
+                },
+                {
+                  "choice": "Spend, then see what\u2019s left",
+                  "outcome": "Shortfall delays goal."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Automation reduces reliance on daily motivation.",
+              "answer": true,
+              "explain": "Systems > willpower."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m2-l6",
+          "title": "Monthly Tune-Up",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Budgets need check-ins. Compare plan vs actual, move money between categories if needed, and update next month\u2019s targets. Review subscriptions and seasonal expenses.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag each action under Adjust or Keep.",
+              "groups": {
+                "Adjust": [
+                  "Lower eating-out $20"
+                ],
+                "Keep": [
+                  "Phone bill same"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "One subscription to cancel or replace this month?",
+              "answer": "Replace premium music with student plan.",
+              "explain": "Name a concrete action."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "What if gas overspends by $40?",
+              "options": [
+                "Ignore it",
+                "Raise gas, cut a want $40",
+                "Use credit impulsively",
+                "Quit budgeting"
+              ],
+              "answer": 1,
+              "explain": "Rebalance categories; keep total on track."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "50/30/20 allocates what to needs?",
+            "options": [
+              "20%",
+              "30%",
+              "50%",
+              "70%"
+            ],
+            "answer": 2,
+            "explain": "Needs get about half."
+          },
+          {
+            "type": "numeric",
+            "prompt": "Emergency fund target for $1,200/mo (3 months)?",
+            "answer": 3600,
+            "tolerance": 1,
+            "explain": "1,200 \u00d7 3 = 3,600."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "One-Month Budget",
+        "instructions": "Build a one-month budget with income, categories, and an automated savings transfer. Export or screenshot.",
+        "rubric": [
+          "Complete categories",
+          "Savings automation",
+          "Feasible totals"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "budget_vocab",
+          "calc_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m3",
+      "title": "Banking & Financial Services",
+      "skills": [
+        "compare_institutions",
+        "account_opening",
+        "checking_use",
+        "savings_interest",
+        "digital_safety",
+        "fee_minimizing"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m3-l1",
+          "title": "Banks vs Credit Unions",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Banks and credit unions both hold deposits and offer accounts. Credit unions are member-owned and often have lower fees; banks may have more branches/apps. Compare fees, APY, and ATM access.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match institution to trait.",
+              "groups": {
+                "Credit union": [
+                  "Member-owned, lower fees"
+                ],
+                "Bank": [
+                  "Large networks, broad products"
+                ]
+              }
+            },
+            {
+              "type": "mcq",
+              "prompt": "Which metric matters for savings growth?",
+              "options": [
+                "APY",
+                "ATM color",
+                "Card design",
+                "Branch carpet"
+              ],
+              "answer": 0,
+              "explain": "APY (annual percentage yield) drives interest earned."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which metric matters for savings growth?",
+              "options": [
+                "APY",
+                "ATM color",
+                "Card design",
+                "Branch carpet"
+              ],
+              "answer": 0,
+              "explain": "APY (annual percentage yield) drives interest earned."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m3-l2",
+          "title": "Open and Use an Account",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "To open an account, bring ID, SSN/ITIN (if available), and initial deposit. Learn to use direct deposit, mobile check deposit, and alerts to avoid overdrafts.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag required docs to 'Bring'.",
+              "groups": {
+                "Bring": [
+                  "Photo ID",
+                  "SSN/ITIN (if any)",
+                  "Initial deposit"
+                ],
+                "Not required": [
+                  "Library card"
+                ]
+              }
+            },
+            {
+              "type": "hotspot",
+              "prompt": "Tap the statement area that shows fees.",
+              "targets": [
+                "Fees section",
+                "Overdraft line"
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Alerts can help prevent overdrafts.",
+              "answer": true,
+              "explain": "Balance and low-funds alerts are useful."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m3-l3",
+          "title": "Checking Mechanics",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Checking accounts are for frequent spending. Use debit cards, checks, and bill pay. Track your balance\u2014pending transactions still count against what you can spend.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap where to find 'available balance' in app mock.",
+              "targets": [
+                "Available balance label"
+              ]
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "At $150 balance, $60 pending, can you spend $120?",
+              "branches": [
+                {
+                  "choice": "Yes",
+                  "outcome": "Overdraft likely."
+                },
+                {
+                  "choice": "No",
+                  "outcome": "Correct\u2014available is around $90."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "What reduces overdraft risk most?",
+              "options": [
+                "Track available balance",
+                "Ignore pending",
+                "Turn off alerts",
+                "Swipe freely"
+              ],
+              "answer": 0,
+              "explain": "Know what\u2019s truly available."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m3-l4",
+          "title": "Savings & Interest",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Savings earns interest. Compound interest means you earn interest on interest. Higher APY grows balances faster\u2014compare accounts yearly.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Move APY to see 12\u2011mo interest on $500.",
+              "min": 0,
+              "max": 10,
+              "start": 4,
+              "explain": "Higher APY yields more interest; compounding accelerates growth."
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one reason to keep savings separate from checking.",
+              "answer": "Reduces impulse spending and tracks goals clearly.",
+              "explain": "Separate buckets protect goals."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "numeric",
+              "prompt": "At 2% APY simple estimate on $1,000 for 1 year \u2248",
+              "answer": 20,
+              "tolerance": 1,
+              "explain": "Rough approximation: $20."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m3-l5",
+          "title": "Digital Payments & Safety",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "P2P apps are convenient but risky if you pay the wrong person. Verify usernames, avoid paying strangers, and never send codes. Turn on app locks; beware phishing texts.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag red flags to 'Scam'.",
+              "groups": {
+                "Scam": [
+                  "Prize asks for fee",
+                  "Payment request from 'coach' unknown #"
+                ],
+                "OK": [
+                  "Split known friend\u2019s bill"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Write one safety step for P2P apps.",
+              "answer": "Confirm handle and amount before paying.",
+              "explain": "Double-check recipient."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "You can always reverse a P2P payment easily.",
+              "answer": false,
+              "explain": "Often final\u2014treat like cash."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m3-l6",
+          "title": "Minimize Fees & Choose Well",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Fees erode savings. Compare monthly fees, overdraft rules, ATM networks, and APY. Prefer accounts with free student options and broad ATM access.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match fee type to avoidance tip.",
+              "groups": {
+                "Overdraft": [
+                  "Low-balance alerts"
+                ],
+                "Out-of-network ATM": [
+                  "Use partner ATMs"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Which account would you choose and why? (short)",
+              "answer": "Student checking with no monthly fee and large ATM network.",
+              "explain": "State one fee and one feature."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best single feature for daily spending?",
+              "options": [
+                "High APY",
+                "No monthly fee",
+                "Paper statements only",
+                "No app"
+              ],
+              "answer": 1,
+              "explain": "Avoid fixed monthly costs."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Which protects deposits up to limits?",
+            "options": [
+              "FDIC/NCUA insurance",
+              "Points program",
+              "Paper checks",
+              "PIN length"
+            ],
+            "answer": 0,
+            "explain": "FDIC for banks, NCUA for credit unions."
+          },
+          {
+            "type": "true_false",
+            "prompt": "Out-of-network ATMs can trigger fees.",
+            "answer": true,
+            "explain": "Use partner networks."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "Pick-My-Bank Card",
+        "instructions": "Create a summary of the account you\u2019d open: institution, fees, APY, ATM access, and two safety settings you\u2019ll enable.",
+        "rubric": [
+          "Clear comparison",
+          "Fee awareness",
+          "Safety steps"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "bank_vocab",
+          "fee_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m4",
+      "title": "Credit & Debt",
+      "skills": [
+        "credit_types",
+        "card_use",
+        "score_factors",
+        "loan_math",
+        "risk_avoidance",
+        "repayment"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m4-l1",
+          "title": "Credit Basics",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Credit lets you borrow now and repay later with interest. Revolving credit (cards) differs from installment loans (car, student). Borrow only what you can repay on time.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match credit type to example.",
+              "groups": {
+                "Revolving": [
+                  "Credit card"
+                ],
+                "Installment": [
+                  "Auto loan",
+                  "Student loan"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one benefit and one risk of credit cards.",
+              "answer": "Benefit: build history. Risk: high interest if you carry a balance.",
+              "explain": "Both sides matter."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Carrying a balance builds credit faster than paying in full.",
+              "answer": false,
+              "explain": "Paying on time in full is best."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m4-l2",
+          "title": "Credit Cards in Practice",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Statements show purchases, minimum payment, and interest if you don\u2019t pay in full. Utilization (balance/limit) should stay under ~30% for a healthy score.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap the statement areas for 'minimum payment' and 'APR'.",
+              "targets": [
+                "Minimum payment",
+                "APR"
+              ]
+            },
+            {
+              "type": "slider",
+              "prompt": "Move utilization % to see risk.",
+              "min": 0,
+              "max": 100,
+              "start": 35,
+              "explain": "Below ~30% is generally healthier."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best habit with a starter card?",
+              "options": [
+                "Pay minimum to build history",
+                "Pay in full monthly",
+                "Max out for rewards",
+                "Open 5 cards"
+              ],
+              "answer": 1,
+              "explain": "Avoid interest and keep utilization low."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m4-l3",
+          "title": "Credit Scores",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Scores reflect payment history, amounts owed/utilization, length of history, new credit, and mix. Paying on time matters most. Check reports yearly for errors.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Order the factors by typical impact (highest to lower).",
+              "groups": {
+                "Order": [
+                  "Payment history",
+                  "Amounts owed/utilization",
+                  "Length",
+                  "New",
+                  "Mix"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "One way to start building safely?",
+              "answer": "Authorized user on a responsible adult\u2019s card.",
+              "explain": "Alternative: secured card."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Missing payments can hurt a score for years.",
+              "answer": true,
+              "explain": "Protect payment history."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m4-l4",
+          "title": "Loans & Total Cost",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Loan cost depends on principal, APR, and term. Longer terms lower payments but raise total interest. Compare offers using total paid, not just monthly payment.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Adjust term to see total interest on $10,000 at 8% APR.",
+              "min": 12,
+              "max": 72,
+              "start": 48,
+              "explain": "Longer term \u2192 more interest overall."
+            },
+            {
+              "type": "type_in",
+              "prompt": "Why can a low monthly payment still be expensive?",
+              "answer": "Long term adds more interest.",
+              "explain": "Focus on total cost."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "numeric",
+              "prompt": "At 10% APR, interest on $1,000 for 1 year (simple est) \u2248",
+              "answer": 100,
+              "tolerance": 2,
+              "explain": "Rough mental math."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m4-l5",
+          "title": "Staying Out of Trouble",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Avoid late fees with autopay. Keep utilization low, avoid cash advances, and don\u2019t open many accounts quickly. Have an emergency fund so surprises don\u2019t go on a card.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag to Good/Risky.",
+              "groups": {
+                "Good": [
+                  "Autopay in full",
+                  "Utilization <30%"
+                ],
+                "Risky": [
+                  "Cash advance",
+                  "Opening 3 cards fast"
+                ]
+              }
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Unexpected $200 repair. Best move?",
+              "branches": [
+                {
+                  "choice": "Card + pay over months",
+                  "outcome": "Interest adds up."
+                },
+                {
+                  "choice": "Use emergency fund, then rebuild it",
+                  "outcome": "No interest; safer."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which helps most long-term?",
+              "options": [
+                "Paying late rarely",
+                "Paying on time always",
+                "Carrying 50% utilization",
+                "Closing oldest account"
+              ],
+              "answer": 1,
+              "explain": "On-time payment history is king."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m4-l6",
+          "title": "Repayment Strategies",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "If you have multiple balances, avalanche (highest APR first) saves interest; snowball (smallest balance first) builds momentum. Pick the one you\u2019ll actually follow.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match method to description.",
+              "groups": {
+                "Avalanche": [
+                  "Highest APR first"
+                ],
+                "Snowball": [
+                  "Smallest balance first"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Which will you choose and why (1 sentence)?",
+              "answer": "Avalanche to minimize interest paid.",
+              "explain": "Justify your pick."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Snowball always costs less interest than avalanche.",
+              "answer": false,
+              "explain": "Avalanche is interest-optimal; snowball aids motivation."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Keep utilization roughly under:",
+            "options": [
+              "90%",
+              "50%",
+              "30%",
+              "10% every day"
+            ],
+            "answer": 2,
+            "explain": "Under ~30% is a common guideline."
+          },
+          {
+            "type": "true_false",
+            "prompt": "Checking your own credit report hurts your score.",
+            "answer": false,
+            "explain": "Soft inquiries don\u2019t affect score."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "90-Day Credit Plan",
+        "instructions": "Outline how you\u2019ll build or protect credit: autopay in full, utilization target, and monitoring method.",
+        "rubric": [
+          "Realistic actions",
+          "Risk awareness",
+          "Monitoring step"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "credit_vocab",
+          "score_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m5",
+      "title": "Paying for College & Financial Aid",
+      "skills": [
+        "coa",
+        "net_price",
+        "fafsa",
+        "offer_compare",
+        "loan_plans",
+        "scholarships"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m5-l1",
+          "title": "True Cost of College",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Total cost includes tuition/fees, housing, food, books, transport, and personal expenses. Use the school\u2019s cost of attendance (COA) as a starting point.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap all COA components.",
+              "targets": [
+                "Tuition & fees",
+                "Room & board",
+                "Books & supplies",
+                "Transport",
+                "Personal"
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one hidden cost to plan for.",
+              "answer": "Course materials/software.",
+              "explain": "Costs beyond tuition matter."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "COA equals what you will pay out-of-pocket.",
+              "answer": false,
+              "explain": "Net price depends on aid."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m5-l2",
+          "title": "Sticker vs Net Price",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Sticker price is the published cost; net price is after grants and scholarships. Always compare schools by net price, not sticker.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Sticker $28k; grants $7k; scholarships $3k. Net?",
+              "answer": "18000",
+              "explain": "28 - 7 - 3 = 18."
+            },
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag to Free vs Must Repay.",
+              "groups": {
+                "Free money": [
+                  "Grants",
+                  "Scholarships"
+                ],
+                "Must repay": [
+                  "Loans"
+                ]
+              }
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best first dollars to use?",
+              "options": [
+                "Private loan",
+                "Credit card",
+                "Scholarships/grants",
+                "Ignore aid"
+              ],
+              "answer": 2,
+              "explain": "Free money first."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m5-l3",
+          "title": "FAFSA Basics",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "FAFSA unlocks federal aid and many scholarships. Gather SSN, tax info, and school list; submit as early as possible each cycle.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Order FAFSA steps.",
+              "groups": {
+                "Order": [
+                  "Create FSA ID",
+                  "Complete form",
+                  "List schools",
+                  "Submit",
+                  "Review Student Aid Report"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "One doc to prepare now:",
+              "answer": "Prior-year tax return or W-2.",
+              "explain": "Preparation speeds filing."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "You can update your FAFSA if school choices change.",
+              "answer": true,
+              "explain": "You can add/remove schools."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m5-l4",
+          "title": "Offer Letter Decode",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Compare aid offers by net price and loan types. Subsidized loans are cheaper than unsubsidized; work-study reduces borrowing.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap cheaper loan type in typical offers.",
+              "targets": [
+                "Subsidized Direct"
+              ]
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Offer A lower sticker, Offer B more grants\u2014pick best net.",
+              "branches": [
+                {
+                  "choice": "Offer A",
+                  "outcome": "Higher net due to fewer grants."
+                },
+                {
+                  "choice": "Offer B",
+                  "outcome": "Lower net\u2014grants reduce cost."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Work-study is:",
+              "options": [
+                "Grant you repay",
+                "Part-time job reducing borrowing",
+                "Private loan",
+                "Scholarship for sports"
+              ],
+              "answer": 1,
+              "explain": "Work-study provides earnings that can offset expenses."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m5-l5",
+          "title": "Student Loans & Repayment",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Borrow the minimum needed. Estimate monthly payments and compare to expected starting salary. Favor federal loans and understand repayment plans.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Adjust debt to see payment at 5% APR/10yr.",
+              "min": 0,
+              "max": 60000,
+              "start": 15000,
+              "explain": "Higher principal increases monthly and total paid."
+            },
+            {
+              "type": "type_in",
+              "prompt": "Rule of thumb: total loans should be \u2264 your first-year salary. True/False?",
+              "answer": "True",
+              "explain": "Keeps payment manageable."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Private loans usually have more protections than federal.",
+              "answer": false,
+              "explain": "Federal loans offer more protections and plans."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m5-l6",
+          "title": "Scholarships & Scams",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Apply widely for scholarships\u2014local awards add up. Avoid scams that charge fees or guarantee results. Never share SSN/banking to \u2018apply.\u2019",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag red flags to Scam.",
+              "groups": {
+                "Scam": [
+                  "Application fee",
+                  "Guaranteed win"
+                ],
+                "Legit": [
+                  "School financial aid site"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "List two scholarship search sources.",
+              "answer": "Counselor list; official state portal.",
+              "explain": "Use trusted sources."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best time to start scholarship apps?",
+              "options": [
+                "Senior spring only",
+                "As late as possible",
+                "Early and ongoing",
+                "Never"
+              ],
+              "answer": 2,
+              "explain": "Start early to maximize options."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "numeric",
+            "prompt": "If net price is $18,500 and you save $2,500, what remains?",
+            "answer": 16000,
+            "tolerance": 1,
+            "explain": "18,500 - 2,500 = 16,000."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "Two-School Net Price Compare",
+        "instructions": "Enter two real schools\u2019 costs and aid, compute net prices and list two actions to reduce borrowing.",
+        "rubric": [
+          "Correct net calc",
+          "Actionable steps",
+          "Clarity"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "aid_vocab",
+          "net_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m6",
+      "title": "Investing & Building Wealth",
+      "skills": [
+        "compounding",
+        "asset_types",
+        "diversification",
+        "retirement_accounts",
+        "fee_awareness",
+        "dca"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m6-l1",
+          "title": "Why Invest & Compounding",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Inflation erodes cash. Investing lets money grow through compound returns. Time in the market matters more than timing the market.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Start age slider (18\u219230) saving $50/mo at 7%\u2014see age 65 value.",
+              "min": 18,
+              "max": 30,
+              "start": 22,
+              "explain": "Starting earlier yields much larger balances."
+            },
+            {
+              "type": "type_in",
+              "prompt": "Define compound interest in one sentence.",
+              "answer": "Earning interest on your original money and the interest already earned.",
+              "explain": "Core idea."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Waiting 10 years to start has little impact over 40 years.",
+              "answer": false,
+              "explain": "Early years compound the most."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m6-l2",
+          "title": "Assets & Risk/Return",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Stocks offer higher potential returns with volatility; bonds are steadier with lower returns. Funds bundle many assets for diversification.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match asset to trait.",
+              "groups": {
+                "Stock": [
+                  "High potential, volatile"
+                ],
+                "Bond": [
+                  "Lower risk/return"
+                ],
+                "Index fund": [
+                  "Broad diversification"
+                ]
+              }
+            },
+            {
+              "type": "mcq",
+              "prompt": "Which reduces single-company risk most?",
+              "options": [
+                "Buying one stock",
+                "Buying many via index fund",
+                "Following social media tips",
+                "Timing day by day"
+              ],
+              "answer": 1,
+              "explain": "Diversification spreads risk."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which reduces single-company risk most?",
+              "options": [
+                "Buying one stock",
+                "Buying many via index fund",
+                "Following social media tips",
+                "Timing day by day"
+              ],
+              "answer": 1,
+              "explain": "Diversification spreads risk."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m6-l3",
+          "title": "Diversification",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Don\u2019t put all eggs in one basket. Mixing assets smooths the ride. Allocate by time horizon and risk tolerance.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Name one benefit of diversification.",
+              "answer": "Reduces impact of any single holding.",
+              "explain": "Smoother returns."
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Choose: 100% single stock vs index fund.",
+              "branches": [
+                {
+                  "choice": "Single stock",
+                  "outcome": "Large swings; concentration risk."
+                },
+                {
+                  "choice": "Index fund",
+                  "outcome": "Broader exposure; lower single-name risk."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Diversification guarantees profits.",
+              "answer": false,
+              "explain": "It manages risk; no guarantees."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m6-l4",
+          "title": "Retirement Accounts",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "401(k)s and IRAs provide tax advantages; employer matches are \u2018free money.\u2019 Contribute early and consistently; increase with raises.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Employer match 50% up to 4%\u2014set your contribution % to capture full match.",
+              "min": 0,
+              "max": 10,
+              "start": 4,
+              "explain": "Contributing at least 4% captures the full match."
+            },
+            {
+              "type": "type_in",
+              "prompt": "One difference between Roth and traditional IRA?",
+              "answer": "Roth: pay tax now; tax-free withdrawals later.",
+              "explain": "Key tax timing difference."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which action maximizes match?",
+              "options": [
+                "Contribute less than match",
+                "Contribute to match minimum",
+                "Skip entirely",
+                "Withdraw match early"
+              ],
+              "answer": 1,
+              "explain": "Don\u2019t leave match on the table."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m6-l5",
+          "title": "Fees & Fads",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Fees compound against you. Lower expense ratios leave more growth. Be wary of hype and \u2018guaranteed\u2019 returns; research before investing.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match item to fee level.",
+              "groups": {
+                "Index fund": [
+                  "Typically low ER"
+                ],
+                "Actively managed fund": [
+                  "Often higher ER"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Write one red flag for an investment pitch.",
+              "answer": "Guaranteed high returns quickly.",
+              "explain": "No investment is guaranteed."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "A 1% annual fee barely matters over decades.",
+              "answer": false,
+              "explain": "Small fees compound into large drags."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m6-l6",
+          "title": "Dollar-Cost Averaging",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Invest a fixed amount at regular intervals regardless of price. DCA reduces timing risk and keeps you investing through ups and downs.",
+          "activities": [
+            {
+              "type": "scenario_sim",
+              "prompt": "Market dips 15%. Your DCA plan says?",
+              "branches": [
+                {
+                  "choice": "Stop buying",
+                  "outcome": "You miss lower prices."
+                },
+                {
+                  "choice": "Keep buying same amount",
+                  "outcome": "You buy more shares cheaper."
+                }
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "One benefit of auto-investing?",
+              "answer": "Removes emotion and maintains consistency.",
+              "explain": "Systems beat emotions."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "DCA is primarily about:",
+              "options": [
+                "Maximizing short-term gains",
+                "Avoiding timing mistakes",
+                "Leveraging margin",
+                "Beating all pros"
+              ],
+              "answer": 1,
+              "explain": "It smooths entry points."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Diversification mainly reduces:",
+            "options": [
+              "All losses",
+              "Single-asset risk",
+              "Taxes",
+              "Inflation"
+            ],
+            "answer": 1,
+            "explain": "It spreads risk across holdings."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "Starter Investing Plan",
+        "instructions": "Draft a 3\u2011bullet plan: account type, monthly amount, and fund choice (with expense ratio).",
+        "rubric": [
+          "Clear, simple plan",
+          "Appropriate account",
+          "Fee awareness"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "invest_vocab",
+          "risk_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m7",
+      "title": "Income, Employment & Taxes",
+      "skills": [
+        "earnings",
+        "paystub",
+        "withholding",
+        "filing",
+        "credits_deductions",
+        "net_budgeting"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m7-l1",
+          "title": "Earning Money",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Income can be wages, salary, tips, or self\u2011employment. Know your rate and expected hours so you can forecast paychecks and budget realistically.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "If you earn $14/hr for 12 hrs, gross pay is?",
+              "answer": "168",
+              "explain": "14 \u00d7 12 = 168."
+            },
+            {
+              "type": "drag_categorize",
+              "prompt": "Match income type to example.",
+              "groups": {
+                "Wage": [
+                  "$15/hour"
+                ],
+                "Salary": [
+                  "$40,000/year"
+                ],
+                "Gig": [
+                  "$50 per project"
+                ]
+              }
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Tips are never taxable income.",
+              "answer": false,
+              "explain": "Tips are taxable and should be reported."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m7-l2",
+          "title": "Reading a Pay Stub",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Your pay stub shows gross pay, taxes, and net (take\u2011home). Common deductions: federal/state tax and FICA (Social Security/Medicare).",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap FICA lines on the stub mock.",
+              "targets": [
+                "Social Security",
+                "Medicare"
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "Gross $500; total deductions $75. Net?",
+              "answer": "425",
+              "explain": "500 - 75 = 425."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which is true?",
+              "options": [
+                "Net pay > gross pay",
+                "Gross pay includes overtime before deductions",
+                "FICA is optional",
+                "Withholding is a tip"
+              ],
+              "answer": 1,
+              "explain": "Gross is before deductions; net is after."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m7-l3",
+          "title": "W-4 & Withholding",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "A W\u20114 guides how much tax is withheld. Too little \u2192 you may owe; too much \u2192 larger refund later. Aim for accuracy based on your situation.",
+          "activities": [
+            {
+              "type": "scenario_sim",
+              "prompt": "Choose W\u20114 approach.",
+              "branches": [
+                {
+                  "choice": "Accurate withholding",
+                  "outcome": "Smaller refund, steady take\u2011home."
+                },
+                {
+                  "choice": "Over\u2011withhold",
+                  "outcome": "Bigger refund, less each check."
+                }
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "One reason to update a W\u20114.",
+              "answer": "New job or income change.",
+              "explain": "Keep it current."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "You never need to update a W\u20114 after your first job.",
+              "answer": false,
+              "explain": "Life changes can require updates."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m7-l4",
+          "title": "Intro to Filing Taxes",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Most student returns are simple: a W\u20112, standard deduction, and possibly a state return. Filing gets back any over\u2011withheld taxes.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Order the steps to e\u2011file.",
+              "groups": {
+                "Order": [
+                  "Collect W\u20112",
+                  "Create account/software",
+                  "Enter info",
+                  "Review",
+                  "Submit"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "What document reports employee wages/taxes?",
+              "answer": "W-2",
+              "explain": "W\u20112 comes from your employer."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "The standard deduction generally:",
+              "options": [
+                "Increases your tax owed",
+                "Reduces taxable income",
+                "Is a penalty",
+                "Applies only to businesses"
+              ],
+              "answer": 1,
+              "explain": "It lowers taxable income."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m7-l5",
+          "title": "Credits vs Deductions",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Deductions reduce taxable income; credits reduce tax owed dollar\u2011for\u2011dollar. Some credits are refundable, meaning you can get money back even if you owe zero.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match term to effect.",
+              "groups": {
+                "Deduction": [
+                  "Reduces taxable income"
+                ],
+                "Credit": [
+                  "Reduces tax owed directly"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one education\u2011related tax benefit.",
+              "answer": "American Opportunity Credit.",
+              "explain": "There are several; names vary."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "A $500 credit saves more tax than a $500 deduction (generally).",
+              "answer": true,
+              "explain": "Credits cut tax directly."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m7-l6",
+          "title": "After\u2011Tax Budgeting",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Plan with net pay, not gross. Plug your actual take\u2011home into your budget to avoid shortfalls. Adjust categories if net is lower than expected.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Net $1,200/mo; allocate $240 to savings (what %)?",
+              "answer": "20%",
+              "explain": "240/1200 = 20%."
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Net falls 5%. First move?",
+              "branches": [
+                {
+                  "choice": "Recheck essentials, trim wants",
+                  "outcome": "Keeps plan realistic."
+                },
+                {
+                  "choice": "Ignore and hope",
+                  "outcome": "Shortfalls pile up."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which should you base rent affordability on?",
+              "options": [
+                "Gross pay",
+                "Net pay",
+                "Credit limit",
+                "Sticker price"
+              ],
+              "answer": 1,
+              "explain": "Net is what you can actually spend."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "numeric",
+            "prompt": "At $13/hr for 20 hrs, gross?",
+            "answer": 260,
+            "tolerance": 0.5,
+            "explain": "13 \u00d7 20 = 260."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "First Job Setup",
+        "instructions": "Create a checklist: direct deposit, W\u20114 settings, and how your net pay flows into your budget.",
+        "rubric": [
+          "Accurate steps",
+          "Budget linkage",
+          "Clarity"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "tax_vocab",
+          "pay_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m8",
+      "title": "Consumer Awareness & Fraud Protection",
+      "skills": [
+        "research_buy",
+        "ad_tactics",
+        "tco",
+        "contracts",
+        "scams",
+        "identity_protection"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m8-l1",
+          "title": "Smart Shopping",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Good consumers research, compare total cost, read reviews, and wait 24 hours on non\u2011essentials. Use price trackers and student discounts.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag steps under Research/Buy Now.",
+              "groups": {
+                "Research": [
+                  "Compare prices",
+                  "Read reviews"
+                ],
+                "Buy Now": [
+                  "Urgent timer ad"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one way to cut device purchase cost.",
+              "answer": "Buy last year\u2019s model or refurbished.",
+              "explain": "TCO matters."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "A countdown timer always means a real deadline.",
+              "answer": false,
+              "explain": "Often a persuasion tactic."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m8-l2",
+          "title": "Ads & Influence",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Ads use emotion, scarcity, and social proof. Notice tactics so you can decide based on value, not hype. Unfollow feeds that trigger overspending.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match tactic to example.",
+              "groups": {
+                "Scarcity": [
+                  "Only 2 left!"
+                ],
+                "Social proof": [
+                  "#1 most loved"
+                ],
+                "Authority": [
+                  "Expert endorsed"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Write a personal anti\u2011impulse rule.",
+              "answer": "Wait 24 hours before any purchase over $30.",
+              "explain": "Create a speed bump."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best response to an influencer \u2018must buy now\u2019 post?",
+              "options": [
+                "Buy now",
+                "Research & wait",
+                "Share code widely",
+                "Argue in comments"
+              ],
+              "answer": 1,
+              "explain": "Pause, research, then decide."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m8-l3",
+          "title": "Big Purchase: TCO",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Total Cost of Ownership (TCO) includes accessories, warranties, maintenance, and energy. Budget for the whole lifecycle, not just the sticker price.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "List two TCO items for a laptop.",
+              "answer": "Extended warranty; replacement charger.",
+              "explain": "Plan beyond sticker."
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Choose: cheaper laptop with pricey add\u2011ons vs mid\u2011range bundle.",
+              "branches": [
+                {
+                  "choice": "Cheaper + add\u2011ons",
+                  "outcome": "Higher TCO."
+                },
+                {
+                  "choice": "Mid\u2011range bundle",
+                  "outcome": "Lower TCO overall."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "The cheapest sticker price always wins.",
+              "answer": false,
+              "explain": "Consider the full lifecycle cost."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m8-l4",
+          "title": "Contracts & Fine Print",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Contracts are binding. Watch for auto\u2011renewals, restocking fees, and early termination fees. Keep copies and know cancellation windows.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap the clause that auto\u2011renews annually.",
+              "targets": [
+                "Auto\u2011renewal provision"
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "Write one question to ask before signing.",
+              "answer": "How do I cancel and what fees apply?",
+              "explain": "Know exits and fees."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best action before accepting terms?",
+              "options": [
+                "Skim or skip",
+                "Search for \u2018fee\u2019/\u2018cancel\u2019",
+                "Click accept immediately",
+                "Assume fair"
+              ],
+              "answer": 1,
+              "explain": "Search key terms quickly."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m8-l5",
+          "title": "Scams 101",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Common scams: phishing texts, fake support calls, \u2018pay fee to win.\u2019 Never share codes/passwords. Verify requests through official channels.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag to Scam/Legit.",
+              "groups": {
+                "Scam": [
+                  "Prize asks for fee",
+                  "Bank text with unknown link"
+                ],
+                "Legit": [
+                  "Official .gov portal"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "One step after clicking a bad link by mistake.",
+              "answer": "Change password and enable 2FA.",
+              "explain": "Limit damage quickly."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Legit companies ask for your password by text.",
+              "answer": false,
+              "explain": "They should not ask for codes/passwords."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m8-l6",
+          "title": "Identity Safety",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Protect SSN, use strong unique passwords and MFA, and limit oversharing. If identity theft occurs, place a fraud alert or credit freeze and file reports.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match action to benefit.",
+              "groups": {
+                "MFA": [
+                  "Blocks logins without second factor"
+                ],
+                "Credit freeze": [
+                  "Prevents new credit lines"
+                ],
+                "Password manager": [
+                  "Unique strong passwords"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Where to report identity theft?",
+              "answer": "IdentityTheft.gov (FTC).",
+              "explain": "Start recovery there."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best first move after wallet theft?",
+              "options": [
+                "Post on social",
+                "Freeze cards & monitor accounts",
+                "Ignore",
+                "Accept spam"
+              ],
+              "answer": 1,
+              "explain": "Act fast to limit losses."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Which is a red flag?",
+            "options": [
+              "Asks for gift card payment",
+              "Official .gov site",
+              "Bank app 2FA",
+              "Known store app"
+            ],
+            "answer": 0,
+            "explain": "Gift cards are common scam payment."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "Personal Safety Protocol",
+        "instructions": "Write a 5\u2011step protocol you\u2019ll follow when shopping online and handling suspicious messages.",
+        "rubric": [
+          "Covers prevention",
+          "Covers response",
+          "Clear steps"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "fraud_vocab",
+          "contract_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    },
+    {
+      "module_id": "m9",
+      "title": "Risk Management & Insurance",
+      "skills": [
+        "risk_methods",
+        "auto",
+        "health",
+        "renters",
+        "life_disability",
+        "safety_plan"
+      ],
+      "lessons": [
+        {
+          "lesson_id": "m9-l1",
+          "title": "Risk & Safety Net",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Risk is the chance of loss. You manage it with avoidance, reduction, retention (emergency fund), and transfer (insurance). Use multiple layers.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match method to example.",
+              "groups": {
+                "Avoid": [
+                  "Don\u2019t text and drive"
+                ],
+                "Reduce": [
+                  "Seatbelts"
+                ],
+                "Retain": [
+                  "Emergency fund"
+                ],
+                "Transfer": [
+                  "Insurance"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "Name one risk you face this year and one step to manage it.",
+              "answer": "Bike theft; use U\u2011lock and register serial.",
+              "explain": "Concrete and actionable."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Insurance eliminates all risk.",
+              "answer": false,
+              "explain": "It reduces financial impact, not probability."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m9-l2",
+          "title": "Auto Insurance",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Most states require liability coverage. Collision covers your car in crashes; comprehensive covers theft/weather. Higher deductibles lower premiums but raise out\u2011of\u2011pocket in a claim.",
+          "activities": [
+            {
+              "type": "slider",
+              "prompt": "Set deductible from $250\u2192$1,000; see premium change.",
+              "min": 250,
+              "max": 1000,
+              "start": 500,
+              "explain": "Higher deductibles usually lower premiums."
+            },
+            {
+              "type": "type_in",
+              "prompt": "Which coverage pays for your car in a hailstorm?",
+              "answer": "Comprehensive",
+              "explain": "Weather is comprehensive."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Which affects premium?",
+              "options": [
+                "Driving record",
+                "Color only",
+                "Favorite team",
+                "Phone model"
+              ],
+              "answer": 0,
+              "explain": "Record, age, vehicle, location, and coverage matter\u2014not color."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m9-l3",
+          "title": "Health Insurance Basics",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Key terms: premium, deductible, copay, coinsurance, out\u2011of\u2011pocket max, network. Staying in\u2011network saves money. Plans vary in cost and flexibility.",
+          "activities": [
+            {
+              "type": "hotspot",
+              "prompt": "Tap deductible and OOP max on plan card.",
+              "targets": [
+                "Deductible",
+                "OOP max"
+              ]
+            },
+            {
+              "type": "type_in",
+              "prompt": "One reason to choose in\u2011network providers.",
+              "answer": "Lower negotiated rates.",
+              "explain": "You pay less in network."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Reaching the out\u2011of\u2011pocket max means the plan covers the rest in\u2011network that year.",
+              "answer": true,
+              "explain": "Subject to plan rules."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m9-l4",
+          "title": "Renter\u2019s Insurance",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Protects belongings and liability in apartments/dorms (where eligible). It\u2019s inexpensive and often required by landlords. Keep an inventory of valuables.",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "Give one example renter\u2019s insurance covers.",
+              "answer": "Stolen laptop from apartment.",
+              "explain": "Personal property losses are common."
+            },
+            {
+              "type": "scenario_sim",
+              "prompt": "Kitchen fire damages neighbor\u2019s unit\u2014what coverage helps?",
+              "branches": [
+                {
+                  "choice": "Liability coverage",
+                  "outcome": "Covers damage you caused up to limits."
+                },
+                {
+                  "choice": "No insurance",
+                  "outcome": "You pay out\u2011of\u2011pocket."
+                }
+              ]
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "What helps claims go smoothly?",
+              "options": [
+                "No records",
+                "Photo inventory",
+                "Wait months",
+                "Hide facts"
+              ],
+              "answer": 1,
+              "explain": "Documentation speeds claims."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m9-l5",
+          "title": "Other Coverages",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Life insurance protects dependents; disability insurance protects your income if you can\u2019t work. As a student, you may not need these yet, but know they exist.",
+          "activities": [
+            {
+              "type": "drag_categorize",
+              "prompt": "Match purpose to type.",
+              "groups": {
+                "Life": [
+                  "Supports dependents"
+                ],
+                "Disability": [
+                  "Income if unable to work"
+                ]
+              }
+            },
+            {
+              "type": "type_in",
+              "prompt": "When might life insurance matter later?",
+              "answer": "When others rely on your income.",
+              "explain": "It\u2019s about dependents."
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "true_false",
+              "prompt": "Disability insurance replaces lost wages due to illness/injury.",
+              "answer": true,
+              "explain": "It protects your earning power."
+            }
+          ],
+          "xp": 10
+        },
+        {
+          "lesson_id": "m9-l6",
+          "title": "Build Your Safety Plan",
+          "objectives": [
+            "Master core concept",
+            "Apply via interactive tasks"
+          ],
+          "content": "Combine insurance with an emergency fund and safe habits. Review annually as life changes (new job, car, apartment).",
+          "activities": [
+            {
+              "type": "type_in",
+              "prompt": "List two actions to reduce risk this month.",
+              "answer": "Set phone auto\u2011lock; start $300 emergency fund.",
+              "explain": "Simple, immediate steps win."
+            },
+            {
+              "type": "drag_categorize",
+              "prompt": "Drag to Priority/Optional for first\u2011year out of HS.",
+              "groups": {
+                "Priority": [
+                  "Auto insurance",
+                  "Emergency fund"
+                ],
+                "Optional": [
+                  "Life insurance (no dependents)"
+                ]
+              }
+            }
+          ],
+          "mastery_check": [
+            {
+              "type": "mcq",
+              "prompt": "Best sequence for a new driver?",
+              "options": [
+                "Skip insurance",
+                "Buy liability minimums at least",
+                "Borrow friend\u2019s policy",
+                "Use credit card as insurance"
+              ],
+              "answer": 1,
+              "explain": "Driving without insurance is risky and often illegal."
+            }
+          ],
+          "xp": 10
+        }
+      ],
+      "checkpoint": {
+        "items": [
+          {
+            "type": "mcq",
+            "prompt": "Which is a transfer of risk?",
+            "options": [
+              "Emergency fund",
+              "Insurance policy",
+              "Safer habits",
+              "Ignoring risk"
+            ],
+            "answer": 1,
+            "explain": "Insurance shifts cost of covered losses to insurer for a premium."
+          }
+        ],
+        "threshold_pct": 80
+      },
+      "capstone": {
+        "type": "project",
+        "title": "First\u2011Year Safety Plan",
+        "instructions": "Create a one\u2011page plan: emergency fund target, required insurances, and two risk\u2011reduction habits.",
+        "rubric": [
+          "Covers key risks",
+          "Feasible steps",
+          "Clear priorities"
+        ]
+      },
+      "review": {
+        "srs_decks": [
+          "insurance_vocab",
+          "risk_items"
+        ],
+        "modes": [
+          "timed",
+          "targeted"
+        ]
+      }
+    }
+  ]
+}
